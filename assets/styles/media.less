@@ -1,0 +1,54 @@
+@import 'variables.less';
+
+/* Extra Small devices (phones, 767px and down) */
+@media (max-width: @screen-xs-max) {
+
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min){
+	.ndn-page{
+		.ndn-header{
+			flex-direction: column;
+			.ndn-navbar{
+				align-items: center;
+				& > ul{
+					position: relative;
+					width: 100%;
+					display: inline-flex;
+					height: 40px;
+					background-color: @white;
+					top: 0;
+					& > li{
+						width: auto;
+						background-color: @white;
+						& > a{
+							color: @black;
+							font-size: 18px;
+    						text-transform: uppercase;
+						}
+					}
+				}
+				.ndn-searchbar{
+					width: 60%;
+					& > form{
+						& > input{
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+	
+}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
+
+}

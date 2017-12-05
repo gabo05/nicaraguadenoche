@@ -1,0 +1,31 @@
+{
+  "name": "nicaraguadenoche",
+  "description": "Nicaragua de Noche Web",
+  "main": "app.js",
+  "authors": [
+    "Gabriel Flores"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "nicaragua",
+    "nocturno",
+    "noche",
+    "entretenimiento"
+  ],
+  "homepage": "nicaraguadenoche.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "underscore": "^1.8.3",
+    "moment": "^2.19.3",
+    "font-awesome": "fontawesome#^4.7.0",
+    "angular": "^1.6.7"
+  }
+}

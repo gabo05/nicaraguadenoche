@@ -1,0 +1,139 @@
+@import 'variables.less';
+
+body{
+	font-family: @mainfont;
+}
+img{
+	max-width: 100%;
+}
+a
+,a:visited
+,a:hover{
+	text-decoration: none;
+}
+.ndn-page{
+	width: 100%;
+	.ndn-header{
+		width: 100%;
+		box-shadow: 0 2px 5px @shadow;
+		display: flex;
+		flex-direction: row;
+		.ndn-logo{
+			width: 100%;
+			margin-top: 40px;
+			margin-bottom: 25px;
+		}
+		.ndn-navbar{
+			width: 100%;
+			height: @navsize;
+		    display: flex;
+		    float: left;
+		    flex-direction: row;
+		    justify-content: center;
+			.ndn-movil-menu{
+				width: @navsize;
+				height: @navsize;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				.ndn-menu-icon{
+					color: @black;
+				    font-size: 25px;
+				    width: @navsize;
+				    height: @navsize;
+				    display: block;
+				    text-align: center;
+				    display: flex;
+					flex-direction: column;
+					justify-content: center;
+				}
+			}
+			.ndn-logo{
+			    text-align: center;
+			    display: flex;
+			    justify-content: center;
+			    align-items: center;
+			    flex-direction: column;
+			    img{
+			    	max-width: 60%;
+			    }
+			    &.searching{
+			    	width: 25%;
+			    }
+			}
+			& > ul{
+				display: none;
+				position: absolute;
+				width: 100%;
+				list-style-type: none;
+				background-color: @black;
+			    color: @white;
+			    left: 0;
+			    margin: 0;
+			    padding: 0;
+			    top: 66px;
+			    z-index: 9999;
+				& > li{
+					width: 100%;
+					border-bottom: 1px dotted @blacktrans;
+					& > a{
+						padding: 5px 10px;
+						line-height: 44px;
+						color: @white;
+					}
+				}
+			}
+			&.open > ul{
+				display: block;
+			}
+			.ndn-searchbar{
+				display: inline-flex;
+    			padding: 0 15px;
+				& > form{
+					width: 100%;
+				    display: flex;
+				    flex-direction: row;
+				    align-items: center;
+					& > input{
+						width: 0;
+						height: 33px;
+						font-size: 17px;
+						transition: width 2s ease 0s;
+						border: none;
+						box-shadow: none;
+						background-color: @white;
+						font-size: 20px;
+					}
+					&.open > input{
+						width: 100%;
+					}
+					& > button{
+						background-color: @white;
+						color: @black;
+						-webkit-appearance: none;
+						-moz-appearance: none;
+						appearance: none;
+						text-align: center;
+						box-shadow: none;
+					    border: none;
+					    font-size: 25px;
+					}
+				}
+			}
+		}
+	}
+}
+.ndn-img-box{
+	padding: 0;
+	img{
+		width: 100%;
+	}
+	.ndn-img-info{
+		.ndn-img-tag{
+			color: @white;
+			background-color: @secondary;
+			padding: 5px;
+			font-size: 17px;
+		}
+	}
+}
