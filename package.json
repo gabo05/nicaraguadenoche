@@ -25,6 +25,9 @@
     "sails-disk": "~0.10.9",
     "sails-mongo": "^0.12.2"
   },
+  "engines": {
+    "node": "8.9.x"
+  },
   "scripts": {
     "debug": "node debug app.js",
     "start": "node app.js",
