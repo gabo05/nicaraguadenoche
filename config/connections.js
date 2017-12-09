@@ -58,11 +58,12 @@ module.exports.connections = {
   ***************************************************************************/
   NDNMongodbServer: {
     adapter: 'sails-mongo',
-    host: 'localhost',
-    port: 27017,
+    host: 'ds135486.mlab.com',
+    port: 35486,
     user: 'nicaraguadenoche', //optional
-    password: '$ndn2017/*', //optional
+    password: 'ZRkdmwcygEFjMkrT', //optional
     database: 'nicaraguadenoche' //optional
+    //url: ''
   },
 
   /***************************************************************************

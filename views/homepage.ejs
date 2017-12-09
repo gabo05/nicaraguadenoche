@@ -54,6 +54,10 @@
 					<span class="border-left"></span>
 				</div>
 				<div class="kode-contact-area col-md-12">
+					<div class="alert alert-success" role="alert" id="message" style="display: none">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					{{message}}
+					</div>
                     <form method="post" ng-submit="save()" class="comments-form row">
                     	<div class="row">
                             <div class="col-md-6 col-sm-6">
