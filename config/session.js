@@ -96,5 +96,11 @@ module.exports.session = {
   //     ssl: true
   //   }
   // }
-
+  adapter: 'connect-mongo',
+  // Note: user, pass and port are optional
+  url: 'mongodb://nicaraguadenoche:ZRkdmwcygEFjMkrT@ds135486.mlab.com:35486/nicaraguadenoche',
+  collection: 'sessions',
+  auto_reconnect: true,
+  ssl: false,
+  stringify: true
 };
