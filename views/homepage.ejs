@@ -1,14 +1,68 @@
-<div class="row">
-	<div class="col-xs-12 col-md-6 ndn-img-box">
-		<img src="images/sample1.jpg">
-		<div class="ndn-img-info">
-			<div class="ndn-img-tag">Style</div>
-			<div class="ndn-img-text">
-				She’s starting to be super independent.
-			</div>
-			<div class="ndn-author">
-				<span><i class="fa fa-user-o"></i> Richard</span>
-				<span><i class="fa fa-clock-o"></i> Agosto 4, 2017</span>
+<!--Banner Wrap Start-->
+<div class="kf_party_banner">
+    <ul class="party_main_banner">
+        <li>
+            <img src="/images/back.jpg" alt="Image Here">
+            <div class="kf_party_banner_caption">
+                <h4>Iniciamos el 16 de Diciembre del 2017</h4>
+                <h2>Nicaragua de Noche</h2>
+                <p>Actualmente estamos construyendo nuestro sitio, pero puedes suscribirte desde ya</p>
+                <a href="#suscribirte">Subcribirme</a>
+            </div>
+        </li>
+    </ul>
+</div>
+<!--Banner Wrap End-->
+<!--Party Content Wrap Start-->
+<div class="kf_party_content">
+    <!--Great Party Event Wrap Start-->
+    <section class="kf_great_party_bg">
+        <div class="container">
+            <div class="kf_great_party">
+                <h4>2017</h4>
+                <h3>Empieza el vacanal!</h3>
+                <ul class="countdown">
+                    <li>
+                        <span class="days">4</span>
+                        <p class="days_ref">days</p>
+                    </li>
+                    <li>
+                        <span class="hours">23</span>
+                        <p class="hours_ref">hours</p>
+                    </li>
+                    <li>
+                        <span class="minutes">3</span>
+                        <p class="minutes_ref">minutes</p>
+                    </li>
+                    <li>
+                        <span class="seconds last">23</span>
+                        <p class="seconds_ref">seconds</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--Great Party Event Wrap End-->
+</div>
+<div class="kode-blog-style-2">
+	<div class="container" ng-app="ndnapp">
+		<div class="row">
+			<div class="col-md-8" ng-controller="suscriptionController">
+                <div class="kode-contact-heading" id="suscribirte">
+					<h4>Sucribete</h4>
+					<p>Suscribete ya para ser de los primeros en recibir nuestro contenido</p>
+					<span class="border-left"></span>
+				</div>
+				<div class="kode-contact-area col-md-12">
+                    <form method="post" ng-submit="save()" class="comments-form row">
+                    	<div class="row">
+                            <div class="col-md-6 col-sm-6">
+                            	<input type="email" ng-model="email" id="email" name="email" required class="required email" placeholder="Email" />
+                             </div>
+                        </div>
+						<button class="thbg-color" value="Send Reply">Enviar</button>
+                    </form>							
+				</div>
 			</div>
 		</div>
 	</div>

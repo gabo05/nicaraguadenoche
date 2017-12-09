@@ -26,6 +26,14 @@
     "underscore": "^1.8.3",
     "moment": "^2.19.3",
     "font-awesome": "fontawesome#^4.7.0",
-    "angular": "^1.6.7"
+    "angular": "^1.6.7",
+    "fullcalendar": "^3.7.0",
+    "downcount": "^1.0.0",
+    "masonry": "^4.2.0",
+    "malihu-custom-scrollbar-plugin": "^3.1.5",
+    "bxslider-4": "^4.2.12",
+    "jquery": "^3.2.1",
+    "angular-toastr": "^2.1.1",
+    "angular-animate": "^1.6.7"
   }
 }

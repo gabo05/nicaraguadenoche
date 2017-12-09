@@ -2,62 +2,117 @@
 <html>
     <head>
         <title><%= 'Nicaragua de Noche' +(typeof title == 'undefined' ? '' : ' | '+title) %></title>
-
+        <meta charset="utf-8">
         <!-- Viewport mobile tag for sensible mobile support -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <link rel="stylesheet" type="text/css" href="/js/dependencies/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="/js/dependencies/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Oswald%3A400%2C500%2C700%7CPoppins%3A300%2C400%2C500%2C600%2C700&subset=latin%2Clatin-ext">
-        <link rel="stylesheet" href="/styles/main.css">
-        <link rel="stylesheet" href="/styles/media.css">
+        <link rel="stylesheet" type="text/css" href="/lib/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/lib/css/font-awesome.min.css">
+        <!-- bxSlider CSS file -->
+        <link href="/lib/css/jquery.bxslider.min.css" rel="stylesheet" />
+        <!-- Full Calender stylesheet -->
+        <link rel="stylesheet" href="/lib/css/fullcalendar.min.css" media="all">
+        <!-- Typo css -->
+        <link rel="stylesheet" href="/styles/template/typo.css" type="text/css" media="all">
+        <!-- Ihover css -->
+        <link href="/styles/template/ihover.css" rel="stylesheet" media="all">
+        <!-- Widget css -->
+        <link href="/styles/template/widget.css" rel="stylesheet" media="all">
+        <!--Custom Scroller CSS -->
+        <link href="/lib/css/jquery.mCustomScrollbar.min.css" rel="stylesheet" media="all">
+        <!-- DL Menu CSS -->
+        <link href="/styles/template/component.css" rel="stylesheet">
+        <!-- Style css -->
+        <link rel="stylesheet" href="/styles/template/style.css" type="text/css" media="all">
+        <!-- Color css -->
+        <link rel="stylesheet" href="/styles/template/color-party.css" type="text/css" media="all">
+        <!-- Responsive css -->
+        <link rel="stylesheet" href="/styles/template/responsive.css" type="text/css" media="all">
+        <link rel="stylesheet" type="text/css" href="/lib/css/angular-toastr.min.css">
     </head>
-
     <body ng-app="ndnapp">
-        <div class="ndn-page">
-            <header class="ndn-header">
+        <!-- Wrapper Start -->
+        <div id="wrapper">
+            <!--Header Wrap Start-->
+            <header class="kf_party_header">
                 <div class="container">
-                    <div class="ndn-logo hidden-xs hidden-sm">
-                        <img src="images/logo.png">
+                    <div class="kf_party_logo">
+                        <a href="/"><img src="/images/logo.png" alt="Logo Here"></a>
                     </div>
-                    <nav id="ndnbar" class="ndn-navbar">
-                        <div class="ndn-movil-menu hidden-md hidden-lg">
-                            <a href="#" class="ndn-menu-icon" id="ndnmovilmenu">
-                                <i class="fa fa-bars"></i>
-                            </a>
-                        </div>
+                    <div class="kf_party_navigation">
                         <ul>
-                            <li><a href="">Inicio</a></li>
-                            <li><a href="">Cultural</a></li>
-                            <li><a href="">M&uacute;sica</a></li>
-                            <li><a href="">Eventos</a></li>
-                            <li><a href="">Contactanos</a></li>
-                        </ul>
-                        <div class="ndn-logo hidden-lg hidden-md" id="ndnlogo">
-                            <img src="images/logo.png">
-                        </div>
-                        <div class="ndn-searchbar" ng-controller="searchController">
-                            <form id="ndnsearchform" ng-class="{'open' : status === 2}" ng-submit="search()">
-                                <button type="button" ng-click="searchAction()"><i class="fa fa-search"></i></button>
-                                <input type="text" ng-model="searchterm" id="ndnsearch">
+                            <li class="active"><a href="/">Inicio</a></li>
+                            <li><a href="#">Eventos</a></li>
+                            <li><a href="#">Cultura</a></li>
+                            <li><a href="#">Nosotros</a></li>
+                        </ul> 
+                    </div>
+                    <div class="kf_party_search">
+                        <a class="search-fld" href="#"><i class="fa fa-search"></i></a>
+                        <div class="search-wrapper-area">
+                            <form class="search-area">
+                                <input type="text" placeholder="search here"/>
+                                <input type="submit" value="Go"/>
                             </form>
                         </div>
-                    </nav>
+                    </div>
+                    <!--DL Menu Start-->
+                    <div id="kode-responsive-navigation" class="dl-menuwrapper">
+                        <button class="dl-trigger">Abrir Men&uacute;</button>
+                        <ul class="dl-menu">
+                            <li class="active"><a href="">Incio</a></li>
+                            <li><a href="">Eventos</a></li>
+                            <li><a href="">Cultura</a></li>
+                            <li><a href="">Nosotros</a></li>
+                        </ul>
+                    </div>
+                    <!--DL Menu END-->
                 </div>
             </header>
-            <div class="container">
-                <%- body %>
-            </div>
-            <footer>
-
+            <!--Header Wrap End-->
+            <%- body %>
+            <!--Footer Wrap Start-->
+            <footer id="footer">
+                <div class="footer-copyright">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <p>&copy; <a href="#">Nicaragua de Noche</a> All Rights Reserved</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="back-to-top">
+                        <a href="#"><i class="fa fa-arrow-up"></i></a>
+                    </div>
+                </div>
+                <!--copyright End-->
             </footer>
+            <!--Footer Wrap End-->
         </div>
-        <script src="/js/dependencies/jquery/dist/jquery.min.js"></script>
-        <script type="text/javascript" src="/js/dependencies/angular/angular.min.js"></script>
-        <script src="/js/dependencies/moment/min/moment.min.js"></script>
-        <script src="/js/dependencies/underscore/underscore-min.js"></script>
+        <script type="text/javascript" src="/lib/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/lib/js/angular.min.js"></script>
+        <script type="text/javascript" src="/lib/js/moment.min.js"></script>
+        <script type="text/javascript" src="/lib/js/underscore-min.js"></script>
+        <!--Bootstrap Javascript File-->
+        <script src="/lib/js/bootstrap.min.js"></script>
+        <!-- bxSlider Javascript file -->
+        <script src="/lib/js/jquery.bxslider.min.js"></script>
+        <!--Full Calender Script-->
+        <script src="/lib/js/fullcalendar.min.js"></script>
+        <!--Time Counter Script-->
+        <script src="/lib/js/jquery.downCount.js"></script>
+        <!--Dl Menu Script-->
+        <script src="/js/template/modernizr.custom.js"></script>
+        <script src="/js/template/jquery.dlmenu.js"></script>
+        <!--Custom Scroller Js -->
+        <script src="/lib/js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <!--Custom Scripts-->
+        <script src="/js/custom.js"></script>
+        <script type="text/javascript" src="/lib/js/angular-animate.min.js"></script>
+        <script type="text/javascript" src="/lib/js/angular-toastr.min.js"></script>
         <script type="text/javascript" src="/js/app.js"></script>
         <script type="text/javascript" src="/js/app/main.js"></script>
-        <script type="text/javascript" src="/js/app/controllers/search-controller.js"></script>
+        <script type="text/javascript" src="/js/app/factories/suscription-factory.js"></script>
+        <script type="text/javascript" src="/js/app/controllers/suscription-controller.js"></script>
     </body>
 </html>
