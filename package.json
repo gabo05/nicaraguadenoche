@@ -31,7 +31,7 @@
   },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "sails lift",
+    "start": "NODE_ENV=development sails lift",
     "postinstall": "./node_modules/bower/bin/bower install"
   },
   "main": "app.js",
