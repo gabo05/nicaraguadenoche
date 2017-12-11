@@ -37,5 +37,6 @@ module.exports = {
   models: {
     connection: 'NDNMongodbServer'
   },
-  hookTimeout: 900000
+  hookTimeout: 900000,
+  port: 80
 };
