@@ -43,7 +43,61 @@
         </div>
     </section>
     <!--Great Party Event Wrap End-->
+    <!--Schedule Wrap Start-->
+        <section class="kf_party_schedule_bg">
+            <div class="container">
+                <div class="kf_heading_1">
+                    <h2>Eventos Pr&oacute;ximos</h2>
+                    <span>Mantente al d&iacute;a sobre los eventos m&aacute;s importantes del pa&iacute;s</span>
+                </div>
+                <!--Schedule List Wrap Start-->
+                <div class="row">
+                    <div class="col-md-6 no_padding">
+                        <div class="kf_party_schedule_day1">
+                            <figure>
+                                <img src="/images/events/<%= events[0].path %>.jpg" alt="Image Here">
+                            </figure>
+                            <a href="#"><i class="fa fa-calendar"></i>Eventos</a>
+                            <span><%= events[0].title %></span>
+                        </div>
+                        
+                        <div class="kf_schedule_day1_des">
+                            <p><%= events[0].description %></p>
+                            <ul>
+                                <a href="#"><i class="fa fa-calendar"></i><%= TimeService.formatDate(events[0].start_date) %></a>
+                                <!-- <a href="#"><i class="fa fa-clock-o"></i>11.00 - 04.00</a> -->
+                            </ul>
+                        </div>
+                        
+                    </div>
+                    <% for (var i = 1; i < events.length; i++) { %>
+                    <div class="col-md-3 no_padding">
+                        <div class="kf_party_schedule_day_2">
+                            <figure>
+                                <img src="/images/events/<%= events[i].path %>.jpg" alt="Image Here">
+                            </figure>
+                            <div class="kf_party_schedule_day_des">
+                                <h5><%= events[i].title %></h5>
+                                <ul>
+                                    <a href="#"><i class="fa fa-calendar"></i><%= TimeService.formatDate(events[i].start_date) %></a>
+                                    <a href="#"><i class="fa fa-calendar"></i><%= TimeService.formatDate(events[i].end_date) %></a>
+                                </ul>
+                            </div>
+                            
+                            <div class="kf_party_schedule_detail">
+                                <p><%= events[i].description %></p>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+                <!--Schedule List Wrap End-->
+                
+            </div>
+        </section>
+        <!--Schedule Wrap End-->
 </div>
+
 <div class="kode-blog-style-2">
 	<div class="container" ng-app="ndnapp">
 		<div class="row">

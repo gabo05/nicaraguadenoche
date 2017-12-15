@@ -56,16 +56,24 @@ module.exports.connections = {
   * Run: npm install sails-mongo                                             *
   *                                                                          *
   ***************************************************************************/
+  // NDNMongodbServer: {
+  //   adapter: 'sails-mongo',
+  //   host: 'ds135486.mlab.com',
+  //   port: 35486,
+  //   user: 'nicaraguadenoche', //optional
+  //   password: 'ZRkdmwcygEFjMkrT', //optional
+  //   database: 'nicaraguadenoche' //optional
+  //   //url: ''
+  // },
   NDNMongodbServer: {
     adapter: 'sails-mongo',
-    host: 'ds135486.mlab.com',
-    port: 35486,
-    user: 'nicaraguadenoche', //optional
-    password: 'ZRkdmwcygEFjMkrT', //optional
+    host: 'localhost',
+    port: 27017,
+    //user: 'ndn', //optional
+    //password: 'Ndn123#', //optional
     database: 'nicaraguadenoche' //optional
     //url: ''
   },
-
   /***************************************************************************
   *                                                                          *
   * PostgreSQL is another officially supported relational database.          *

@@ -25,10 +25,8 @@
         <!-- Style css -->
         <link rel="stylesheet" href="/styles/template/style.css" type="text/css" media="all">
         <!-- Color css -->
-        <link rel="stylesheet" href="/styles/template/color.css" type="text/css" media="all">
         <link rel="stylesheet" href="/styles/template/color-party.css" type="text/css" media="all">
         <!-- Responsive css -->
-        <link href="/lib/css/jquery.sidr.dark.min.css" rel="stylesheet">
         <link rel="stylesheet" href="/styles/template/responsive.css" type="text/css" media="all">
         <link rel="stylesheet" type="text/css" href="/lib/css/angular-toastr.min.css">
     </head>
@@ -36,21 +34,40 @@
         <!-- Wrapper Start -->
         <div id="wrapper">
             <!--Header Wrap Start-->
-            <div id="mobile-header">
-                <a id="responsive-menu-button" href="#sidr-main"><i class="fa fa-bars"></i></a>
-            </div>
-            <header id="kode-header">
-                <strong class="kode-logo">
-                    <a href="/"><img src="/images/logo.png" alt=""></a>
-                </strong>
-                <nav class="kode-nav" id="navigation">
-                    <ul class="dl-menu">
-                        <li><a href="">Incio</a></li>
-                        <li class="active"><a href="">Eventos</a></li>
-                        <li><a href="">Cultura</a></li>
-                        <li><a href="">Nosotros</a></li>
-                    </ul>
-                </nav>
+            <header class="kf_party_header">
+                <div class="container">
+                    <div class="kf_party_logo">
+                        <a href="/"><img src="/images/logo.png" alt="Logo Here"></a>
+                    </div>
+                    <div class="kf_party_navigation">
+                        <ul>
+                            <li class="active"><a href="/">Inicio</a></li>
+                            <li><a href="#">Eventos</a></li>
+                            <li><a href="#">Cultura</a></li>
+                            <li><a href="#">Nosotros</a></li>
+                        </ul> 
+                    </div>
+                    <div class="kf_party_search">
+                        <a class="search-fld" href="#"><i class="fa fa-search"></i></a>
+                        <div class="search-wrapper-area">
+                            <form class="search-area">
+                                <input type="text" placeholder="search here"/>
+                                <input type="submit" value="Go"/>
+                            </form>
+                        </div>
+                    </div>
+                    <!--DL Menu Start-->
+                    <div id="kode-responsive-navigation" class="dl-menuwrapper">
+                        <button class="dl-trigger">Abrir Men&uacute;</button>
+                        <ul class="dl-menu">
+                            <li class="active"><a href="">Incio</a></li>
+                            <li><a href="">Eventos</a></li>
+                            <li><a href="">Cultura</a></li>
+                            <li><a href="">Nosotros</a></li>
+                        </ul>
+                    </div>
+                    <!--DL Menu END-->
+                </div>
             </header>
             <!--Header Wrap End-->
             <%- body %>
@@ -89,7 +106,6 @@
         <script src="/js/template/jquery.dlmenu.js"></script>
         <!--Custom Scroller Js -->
         <script src="/lib/js/jquery.mCustomScrollbar.concat.min.js"></script>
-        <script src="/lib/js/jquery.sidr.min.js"></script>
         <!--Custom Scripts-->
         <script src="/js/custom.js"></script>
         <script type="text/javascript" src="/lib/js/angular-animate.min.js"></script>
@@ -98,7 +114,5 @@
         <script type="text/javascript" src="/js/app/main.js"></script>
         <script type="text/javascript" src="/js/app/factories/suscription-factory.js"></script>
         <script type="text/javascript" src="/js/app/controllers/suscription-controller.js"></script>
-        <script type="text/javascript" src="/js/app/factories/event-factory.js"></script>
-        <script type="text/javascript" src="/js/app/controllers/event-detail-controller.js"></script>
     </body>
 </html>

@@ -32,9 +32,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  }
+  '/': 'HomeController.index',
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +43,5 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-
+  '/events/:path': 'EventController.detail'
 };
