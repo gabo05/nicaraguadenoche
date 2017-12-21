@@ -36,7 +36,7 @@ module.exports = function(grunt) {
     {
       expand: true,
       cwd: './assets/libdev',
-      src: ['bootstrap/dist/css/bootstrap.min.css', 'font-awesome/css/font-awesome.min.css', 'bxslider-4/dist/jquery.bxslider.min.css'
+      src: ['bootstrap/dist/css/bootstrap.min.css', 'bootstrap/dist/css/bootstrap-theme.min.css','font-awesome/css/font-awesome.min.css', 'bxslider-4/dist/jquery.bxslider.min.css'
       , 'fullcalendar/dist/fullcalendar.min.css', 'malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css'
       , 'angular-toastr/dist/angular-toastr.min.css', 'sidr/dist/stylesheets/jquery.sidr.dark.min.css'],
       dest: '.tmp/public/lib/css',

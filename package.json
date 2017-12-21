@@ -5,6 +5,7 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "bower": "^1.8.2",
     "connect-mongo": "1.1.0",
     "ejs": "2.3.4",
@@ -22,6 +23,8 @@
     "grunt-sync": "0.5.2",
     "include-all": "^1.0.0",
     "moment": "^2.19.4",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "rc": "1.0.1",
     "sails": "~0.12.14",
     "sails-disk": "~0.10.9",

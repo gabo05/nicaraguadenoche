@@ -3,99 +3,89 @@
     <ul class="party_main_banner">
         <li>
             <img src="/images/back.jpg" alt="Image Here">
-            <div class="kf_party_banner_caption">
-                <h4>Iniciamos el 16 de Diciembre del 2017</h4>
-                <h2>Nicaragua de Noche</h2>
-                <p>Actualmente estamos construyendo nuestro sitio, pero puedes suscribirte desde ya</p>
-                <a href="#suscribirte">Subcribirme</a>
-            </div>
+            <search settings="settings" return-start="{{true}}" show-results="displayResults"></search>
         </li>
     </ul>
 </div>
 <!--Banner Wrap End-->
 <!--Party Content Wrap Start-->
 <div class="kf_party_content">
-    <!--Great Party Event Wrap Start-->
-    <section class="kf_great_party_bg">
+    <section class="kf_party_schedule_bg">
         <div class="container">
-            <div class="kf_great_party">
-                <h4>2017</h4>
-                <h3>Empieza el vacanal!</h3>
-                <ul class="countdown">
-                    <li>
-                        <span class="days">4</span>
-                        <p class="days_ref">days</p>
-                    </li>
-                    <li>
-                        <span class="hours">23</span>
-                        <p class="hours_ref">hours</p>
-                    </li>
-                    <li>
-                        <span class="minutes">3</span>
-                        <p class="minutes_ref">minutes</p>
-                    </li>
-                    <li>
-                        <span class="seconds last">23</span>
-                        <p class="seconds_ref">seconds</p>
+            <div class="kf_heading_1">
+                <h2>Resultados</h2>
+                <span ng-show="results.length > 0">Estos son los lugares que te recomendamos: </span>
+            </div>
+            <div id="ndn-search-results">
+                <ul ng-show="results.length > 0" class="ndn-search-results">
+                    <li ng-repeat="result in results">
+                        <div class="ndn-result-image">
+                            <img src="/images/places/thumbs/{{result.path}}.jpg" alt="image here">
+                        </div>
+                        <div>
+                            <a class="ndn-result-name" target="_self" href="/place/{{result.path}}"><h4>{{result.name}}</h4></a>
+                            <p>{{result.shortdescription}}</p>
+                            <a class="ndn-result-phone" target="_self" href="tel:{{result.phone}}"><span>Tel&eacute;fono: </span>{{result.phone}}</a>
+                            <a class="ndn-result-seemore" target="_self" href="/place/{{result.path}}">Ver m&aacute;s...</a>
+                        </div>
                     </li>
                 </ul>
+                <span ng-show="results.length == 0">No se encontraron resultados para tu b&uacute;squeda: </span>
             </div>
         </div>
     </section>
-    <!--Great Party Event Wrap End-->
     <!--Schedule Wrap Start-->
-        <section class="kf_party_schedule_bg">
-            <div class="container">
-                <div class="kf_heading_1">
-                    <h2>Eventos Pr&oacute;ximos</h2>
-                    <span>Mantente al d&iacute;a sobre los eventos m&aacute;s importantes del pa&iacute;s</span>
+    <section class="kf_party_schedule_bg">
+        <div class="container">
+            <div class="kf_heading_1">
+                <h2>Eventos Pr&oacute;ximos</h2>
+                <span>Mantente al d&iacute;a sobre los eventos m&aacute;s importantes del pa&iacute;s</span>
+            </div>
+            <!--Schedule List Wrap Start-->
+            <div class="row">
+                <div class="col-md-6 no_padding">
+                    <div class="kf_party_schedule_day1">
+                        <figure><img src="/images/events/<%= events[0].path %>.jpg" alt="Image Here">
+                        </figure>
+                        <a href="#"><i class="fa fa-calendar"></i>Eventos</a>
+                        <span><a href="/events/<%= events[0].path %>" target="_self"><%= events[0].title %></a></span>
+                    </div>
+                    
+                    <div class="kf_schedule_day1_des">
+                        <p><%= events[0].description %></p>
+                        <ul>
+                            <a href="#"><i class="fa fa-calendar"></i><%= TimeService.formatDate(events[0].start_date) %></a>
+                            <!-- <a href="#"><i class="fa fa-clock-o"></i>11.00 - 04.00</a> -->
+                        </ul>
+                    </div>
+                    
                 </div>
-                <!--Schedule List Wrap Start-->
-                <div class="row">
-                    <div class="col-md-6 no_padding">
-                        <div class="kf_party_schedule_day1">
-                            <figure>
-                                <img src="/images/events/<%= events[0].path %>.jpg" alt="Image Here">
-                            </figure>
-                            <a href="#"><i class="fa fa-calendar"></i>Eventos</a>
-                            <span><%= events[0].title %></span>
-                        </div>
-                        
-                        <div class="kf_schedule_day1_des">
-                            <p><%= events[0].description %></p>
+                <% for (var i = 1; i < events.length; i++) { %>
+                <div class="col-md-3 no_padding">
+                    <div class="kf_party_schedule_day_2">
+                        <figure>
+                            <a href="/events/<%= events[i].path %>" target="_self"><img src="/images/events/<%= events[i].path %>.jpg" alt="Image Here"></a>
+                        </figure>
+                        <div class="kf_party_schedule_day_des">
+                            <h5><a href="/events/<%= events[0].path %>" target="_self"><%= events[i].title %></a></h5>
                             <ul>
-                                <a href="#"><i class="fa fa-calendar"></i><%= TimeService.formatDate(events[0].start_date) %></a>
-                                <!-- <a href="#"><i class="fa fa-clock-o"></i>11.00 - 04.00</a> -->
+                                <a href="#"><i class="fa fa-calendar"></i><%= TimeService.formatDate(events[i].start_date) %></a>
+                                <a href="#"><i class="fa fa-calendar"></i><%= TimeService.formatDate(events[i].end_date) %></a>
                             </ul>
                         </div>
                         
-                    </div>
-                    <% for (var i = 1; i < events.length; i++) { %>
-                    <div class="col-md-3 no_padding">
-                        <div class="kf_party_schedule_day_2">
-                            <figure>
-                                <img src="/images/events/<%= events[i].path %>.jpg" alt="Image Here">
-                            </figure>
-                            <div class="kf_party_schedule_day_des">
-                                <h5><%= events[i].title %></h5>
-                                <ul>
-                                    <a href="#"><i class="fa fa-calendar"></i><%= TimeService.formatDate(events[i].start_date) %></a>
-                                    <a href="#"><i class="fa fa-calendar"></i><%= TimeService.formatDate(events[i].end_date) %></a>
-                                </ul>
-                            </div>
-                            
-                            <div class="kf_party_schedule_detail">
-                                <p><%= events[i].description %></p>
-                            </div>
+                        <div class="kf_party_schedule_detail">
+                            <p><%= events[i].description %></p>
                         </div>
                     </div>
-                    <% } %>
                 </div>
-                <!--Schedule List Wrap End-->
-                
+                <% } %>
             </div>
-        </section>
-        <!--Schedule Wrap End-->
+            <!--Schedule List Wrap End-->
+            
+        </div>
+    </section>
+    <!--Schedule Wrap End-->
 </div>
 
 <div class="kode-blog-style-2">

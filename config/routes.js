@@ -43,5 +43,32 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-  '/events/:path': 'EventController.detail'
+  '/events/:path': 'EventController.detail',
+  '/home/search': { 
+      view: 'home/search',
+      locals: {
+          layout: false
+      }
+  },
+  'get /administration': {
+       view: 'admin/login',
+      locals: {
+          layout: false
+      }
+  },
+
+  'post /login': 'AuthController.login',
+
+  '/logout': 'AuthController.logout',
+
+  'get /signup': {
+    view: 'admin/signup',
+      locals: {
+          layout: false
+      }
+  },
+  '/administration/home': 'AdminController.home',
+  '/administration/places': 'AdminController.places',
+  '/administration/events': 'AdminController.events',
+  '/administration/search': 'AdminController.search'
 };
