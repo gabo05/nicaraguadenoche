@@ -29,7 +29,7 @@ module.exports = function(grunt) {
       , 'bxslider-4/dist/jquery.bxslider.min.js', 'desandro-matches-selector/matches-selector.js', 'downcount/jquery.downCount.js'
       , 'fullcalendar/dist/fullcalendar.min.js', 'malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js'
       , 'masonry/masonry.pkgd.min.js', 'angular-animate/angular-animate.min.js', 'angular-toastr/dist/angular-toastr.min.js'
-      , 'sidr/dist/jquery.sidr.min.js'],
+      , 'sidr/dist/jquery.sidr.min.js', 'summernote/dist/summernote.min.js', 'angular-summernote/dist/angular-summernote.min.js'],
       dest: '.tmp/public/lib/js',
       flatten: true
     },
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
       cwd: './assets/libdev',
       src: ['bootstrap/dist/css/bootstrap.min.css', 'bootstrap/dist/css/bootstrap-theme.min.css','font-awesome/css/font-awesome.min.css', 'bxslider-4/dist/jquery.bxslider.min.css'
       , 'fullcalendar/dist/fullcalendar.min.css', 'malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css'
-      , 'angular-toastr/dist/angular-toastr.min.css', 'sidr/dist/stylesheets/jquery.sidr.dark.min.css'],
+      , 'angular-toastr/dist/angular-toastr.min.css', 'sidr/dist/stylesheets/jquery.sidr.dark.min.css', 'summernote/dist/summernote.css'],
       dest: '.tmp/public/lib/css',
       flatten: true
     },
@@ -47,6 +47,13 @@ module.exports = function(grunt) {
       cwd: './assets/libdev',
       src: ['font-awesome/fonts/**'],
       dest: '.tmp/public/lib/fonts',
+      flatten: true
+    },
+    {
+      expand: true,
+      cwd: './assets/libdev',
+      src: ['summernote/dist//font/**'],
+      dest: '.tmp/public/lib/css/font',
       flatten: true
     },
     {

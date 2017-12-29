@@ -15,6 +15,9 @@ module.exports = {
 	events: function(req, res){
 		return res.view('admin/events', { 'layout':'adminlayout' });
 	},
+	articles: function(req, res){
+		return res.view('admin/articles', { 'layout':'adminlayout' });
+	},
 	search: function(req, res){
 		return res.view('admin/search', { 'layout':'adminlayout' });
 	}

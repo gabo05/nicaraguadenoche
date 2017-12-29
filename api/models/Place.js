@@ -40,7 +40,7 @@ module.exports = {
     active: {
       type: 'boolean',
       defaultsTo: true
-    }
+    },
   	location: {
   		type: 'json',
   		attributes:{

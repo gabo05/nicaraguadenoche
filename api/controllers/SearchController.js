@@ -16,7 +16,7 @@ module.exports = {
         });
 	},
     search: function(req, res){
-        SearchService.search()
+        SearchService.search(req.body.answers)
         .then(function(results){
             res.ok(results);
         })

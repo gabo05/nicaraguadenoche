@@ -44,6 +44,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   '/events/:path': 'EventController.detail',
+  '/places/:path': 'PlaceController.detail',
   '/home/search': { 
       view: 'home/search',
       locals: {
@@ -58,17 +59,12 @@ module.exports.routes = {
   },
 
   'post /login': 'AuthController.login',
-
   '/logout': 'AuthController.logout',
-
-  'get /signup': {
-    view: 'admin/signup',
-      locals: {
-          layout: false
-      }
-  },
+  'get /signup': 'AuthController.signup',
+  
   '/administration/home': 'AdminController.home',
   '/administration/places': 'AdminController.places',
   '/administration/events': 'AdminController.events',
+  '/administration/articles': 'AdminController.articles',
   '/administration/search': 'AdminController.search'
 };

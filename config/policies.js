@@ -52,5 +52,18 @@ module.exports.policies = {
 
   'AdminController': {
     '*': 'isAuthenticated'
+  },
+  'AuthController': {
+    'signup': 'isAuthenticated'
+  },
+  'PlaceController': {
+    'save': 'isAuthenticated',
+    'all': 'isAuthenticated',
+    'actdeact': 'isAuthenticated'
+  },
+  'ArticleController': {
+    'save': 'isAuthenticated',
+    'all': 'isAuthenticated',
+    'pubunpub': 'isAuthenticated'
   }
 };

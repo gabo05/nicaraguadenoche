@@ -41,7 +41,7 @@
 					<!--KODE-EVENT-CONTER-SECTION START-->
 					<div class="kode_event_counter_section">
 						<figure>
-							<img src="/images/events/<%= event.path %>.jpg" alt="">
+							<img src="/uploads/images/events/<%= event.path %>.jpg" alt="">
 							<% var diff = TimeService.getUntil(event.start_date) %>
 							<ul class="countdown">
 								<li>
@@ -95,7 +95,7 @@
                                     <div class="col-md-6 col-sm-6" ng-repeat="event in coming_events">
                                         <div class="kode-event-recent-info">
                                             <div class="newevent-header">
-                                                <img alt="" ng-src="/images/events/{{event.path}}.jpg">
+                                                <img alt="" ng-src="/uploads/images/events/{{event.path}}.jpg">
                                                 <div class="time-newevent"><i class="fa fa-calendar"></i> {{moment(event.start_date).format('YYYY-MM-DD')}}</div>
                                             </div>
                                             <div class="kode-blog-newcontent">

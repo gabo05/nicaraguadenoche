@@ -1,13 +1,13 @@
 /**
- * PlaceController
+ * ArticleController
  *
- * @description :: Server-side logic for managing places
+ * @description :: Server-side logic for managing articles
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
 module.exports = {
 	all: function(req, res){
-		PlaceService.getAll()
+		ArticleService.getAll()
 		.then(function(data){
 			res.ok(data);
 		}).catch(function(err){
@@ -15,7 +15,7 @@ module.exports = {
 		});
 	},
 	actives: function(req, res){
-		PlaceService.getActives()
+		ArticleService.getPublisheds()
 		.then(function(data){
 			res.ok(data);
 		}).catch(function(err){
@@ -23,15 +23,17 @@ module.exports = {
 		});
 	},
 	save: function(req, res){
-		PlaceService.save(req.body)
+		req.body.author = req.user.name;
+		req.body.userid = req.user.id;
+		ArticleService.save(req.body)
 		.then(function(data){
 			res.ok(data);
 		}).catch(function(err){
 			res.serverError(err);
 		});
 	},
-	actdeact: function(req, res){
-		PlaceService.actDeact(req.body.id, req.body.act)
+	pubunpub: function(req, res){
+		ArticleService.actDeact(req.body.id, req.body.pub)
 		.then(function(data){
 			res.ok(data);
 		}).catch(function(err){
@@ -39,9 +41,9 @@ module.exports = {
 		});
 	},
 	detail: function(req, res){
-		PlaceService.getByPath(req.param('path'))
-        .then(function(pla){
-            res.view({place: pla });
+		ArticleService.getByPath(req.param('path'))
+        .then(function(art){
+            res.view({article: art });
         })
         .catch(function(err){
             res.serverError(err);
@@ -49,7 +51,7 @@ module.exports = {
 	},
 	upload: function(req, res){
 		var options = {
-			dirname: '../public/uploads/images/places',
+			dirname: '../public/uploads/images/blog',
 			newname: req.param('filename')
 		};
 

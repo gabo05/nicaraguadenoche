@@ -31,5 +31,8 @@ module.exports = {
 		oDiff.seconds = Math.floor((diff % mMinutes) / mSeconds);
 
 		return oDiff;
+	},
+	toDate: function (sdate) {
+		return moment(sdate, 'YYYY-MM-DDTHH:mm:ss.SSS').toDate();
 	}
 }

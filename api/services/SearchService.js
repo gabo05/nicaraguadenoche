@@ -227,7 +227,18 @@ module.exports = {
 	},
 	search: function(answers){
 		return new Promise(function(resolve, reject){
-			resolve(temp);
+			Place.native(function(err, collection) {
+                if (err) return reject(err);
+                collection.find({
+                	filters: {
+                		"$size": answers.length,
+                		"$all": answers
+                	}
+                }).toArray(function (err, results) {
+                    if (err) return reject(err);
+                    return resolve(results);
+                });
+            });
 		});
 	}
 }

@@ -34,5 +34,8 @@ module.exports = {
     logout: function(req, res) {
         req.logout();
         res.redirect('/administration');
+    },
+    signup: function (req, res) {
+        return res.view('admin/signup', { layout: 'adminlayout'});
     }
 };

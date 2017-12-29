@@ -1,0 +1,91 @@
+<div class="content">
+	<!-- Kode-Header End -->
+	<div class="sub-header">
+		<!-- SUB HEADER -->
+	</div>
+	<!-- Kode-Slider End -->
+    
+	<!--Kode-our-speaker-heading start-->
+	<div class="Kode-page-heading">
+		<div class="container">
+			<!--ROW START-->
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					<h2><%= place.name %></h2>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<ul>
+						<li>
+							<a href="#"><i class="fa fa-home"></i>Inicio</a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-angle-right"></i>Lugares</a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-angle-right"></i><%= place.name %></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--ROW END-->
+		</div>
+	</div>
+	<!--Kode-our-speaker-heading End-->
+    
+	<div class="kode-blog-style-2">
+    
+		<div class="container">
+			<div class="row">
+            
+				<div class="col-sm-12 col-md-10 center-block">
+					<!--KODE-EVENT-CONTER-SECTION START-->
+					<div class="kode_event_counter_section">
+						<figure>
+							<img src="/uploads/images/places/<%= place.path %>.jpg" alt="">
+						</figure>
+						
+					</div>
+					<!--KODE-EVENT-CONTER-SECTION END-->
+                    
+					<!--KODE_EVENT_CONTER_CAPSTION START-->
+					<div class="kode_event_conter_capstion">
+						<h2><%= place.name %></h2>
+						<div class="counter-meta">
+							<ul class="info-event">
+								<li><i class="fa fa-map-phone"></i><a href="#">Telefono: <span><%= place.phone %></span></a></li>
+								<li><i class="fa fa-marker"></i><a href="#">Direccion <span><%=place.address %></span></a></li>
+							</ul>
+						</div>
+					</div>
+					<!--KODE_EVENT_CONTER_CAPSTION END-->
+                    <div class="other-events">
+                        <div class="row ">
+                            <div class="col-md-12">
+                                <div class="kode-event-place-holder-capstion">
+                                    <p><%= place.description %></p>
+                                    <div id="map"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+        	</div>    
+    	</div>
+	</div>
+</div>
+<script>
+	function initMap() {
+		var uluru = {lat: <%= place.location.latitude %>, lng: <%= place.location.longitude %>};
+		var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 4,
+			center: uluru
+		});
+		var marker = new google.maps.Marker({
+			position: uluru,
+			map: map
+		});
+	}
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqMBGu3pdu_ry_HLgUJTArzrBTevZCVP8&callback=initMap">
+</script>

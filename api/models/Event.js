@@ -43,7 +43,10 @@ module.exports = {
   				type: 'float'
   			}
   		}
-  	}
+	},
+	active: {
+		type: 'boolean'
+	}
   }
 };
 
