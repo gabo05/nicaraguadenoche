@@ -36,6 +36,10 @@ module.exports = {
 		tags: {
 			type: 'array',
 			defaultsTo: []
+		},
+		shortdesc: {
+			type: 'text',
+			required: true
 		}
 	}
 };

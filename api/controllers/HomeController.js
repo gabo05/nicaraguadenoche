@@ -9,7 +9,10 @@ module.exports = {
 	index: function(req, res){
 		EventService.getComingSoon()
         .then(function(results){
-            res.view('homepage', { events: results, 'layout':'homelayout' });
+            ArticleService.getPublisheds(1)
+            .then(function (data) {
+                res.view('homepage', { events: results, articles: data,'layout':'homelayout' });
+            });
         })
         .catch(function(err){
             res.serverError(err);

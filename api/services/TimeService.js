@@ -34,5 +34,8 @@ module.exports = {
 	},
 	toDate: function (sdate) {
 		return moment(sdate, 'YYYY-MM-DDTHH:mm:ss.SSS').toDate();
+	},
+	shortDate: function (date) {
+		return moment(date).format('MMM DD, YYYY');
 	}
 }

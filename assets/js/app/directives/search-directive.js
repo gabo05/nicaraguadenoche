@@ -32,6 +32,7 @@
 						scope.showResults()(scope.answers);
 						if(scope.returnStart){
 							scope.current = scope.settings.questions;
+							scope.answers = [];
 						}
 					}
 				};

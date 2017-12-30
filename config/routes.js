@@ -66,5 +66,10 @@ module.exports.routes = {
   '/administration/places': 'AdminController.places',
   '/administration/events': 'AdminController.events',
   '/administration/articles': 'AdminController.articles',
-  '/administration/search': 'AdminController.search'
+  '/administration/search': 'AdminController.search',
+  '/blog': 'BlogController.index',
+  '/blog/:page': 'BlogController.index',
+  '/blog/articles/:path': 'BlogController.detail',
+  '/calendar': 'EventController.index',
+  '/calendar/:page': 'EventController.index'
 };

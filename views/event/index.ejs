@@ -10,7 +10,7 @@
             <!--ROW START-->
             <div class="row">
                 <div class="col-md-6 col-sm-6">
-                    <h2>blog</h2>
+                    <h2>Eventos</h2>
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <ul>
@@ -18,7 +18,7 @@
                             <a href="#"><i class="fa fa-home"></i>Inicio</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-angle-right"></i>Blog</a>
+                            <a href="#"><i class="fa fa-angle-right"></i>Eventos</a>
                         </li>
                     </ul>
                 </div>
@@ -31,24 +31,24 @@
         <!--KODE_TEAM_BLOG START-->
         <div class="container">
             <div class="row">
-            <% for(var i  = 0; i< articles.length; i++){ 
-                var article = articles[i];
+            <% for(var i  = 0; i< events.length; i++){ 
+                var event = events[i];
                 %>
                 <div class="col-md-4">
                     <!--TEAM_BLOG_THUMB START-->
                     <div class="kode-team-blog">
                         <figure>
-                            <img src="/uploads/images/blog/<%= article.path %>.jpg" alt=""/>
+                            <img src="/uploads/images/events/<%= event.path %>.jpg" alt=""/>
                             <a href="#"><i class="fa fa-plus"></i></a>
                         </figure>
                         <div class="kode-thumb-caption">
-                            <h4><a href="/blog/articles/<%= article.path %>"><%= article.title %></h4>
+                            <h4><a href="/events/<%= event.path %>"><%= event.title %></h4>
                             <ul>
-                                <li><a href="#"><i class="fa fa-user"></i><%= article.author %></a></li>
-                                <li><a href="#"><i class="fa fa-clock-o"></i><%= TimeService.shortDate(article.created) %></a></li>
+                                <li><a href="#"><i class="fa fa-calendar"></i><%= TimeService.shortDate(event.start_date) %></a></li>
+                                <li><a href="#"><i class="fa fa-location-arrow"></i><%= event.location.name %></a></li>
                             </ul>
-                            <p><%= article.shortdesc %></p>
-                            <span><a href="/blog/articles/<%= article.path %>">Leer m&aacute;s</a></span>
+                            <p><%= event.description %></p>
+                            <span><a href="/events/<%= event.path %>">Leer m&aacute;s</a></span>
                         </div>
                     </div>
                     <!--TEAM_BLOG_THUMB END-->

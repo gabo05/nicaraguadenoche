@@ -87,5 +87,51 @@ module.exports = {
 			    })
 			});
 		});
-	}
+    },
+    getPaged: function (page) {
+        return new Promise(function(resolve, reject){
+            Event.native(function(err, collection) {
+                if (err) return reject(err);
+                var nicTime = TimeService.getNicDatetime();
+                collection.aggregate([
+                {
+                    $match: {
+                        active: true
+                    }
+                },
+                {
+                    $sort: {start_date: -1}
+                },
+                {
+                    $skip: (page - 1 )*10
+                },
+                {
+                    $limit: 10
+                }]).toArray(function (err, results) {
+                    if (err) return reject(err);
+                    return resolve(results);
+                });
+            });
+        });
+    },
+    getTotal: function () {
+        return new Promise(function(resolve, reject){
+            Event.native(function(err, collection) {
+                if (err) return reject(err);
+                var nicTime = TimeService.getNicDatetime();
+                collection.aggregate([
+                {
+                    $match: {
+                        active: true
+                    }
+                },
+                {
+                    $count: 'total'
+                }]).toArray(function (err, results) {
+                    if (err) return reject(err);
+                    return resolve(results);
+                });
+            });
+        });
+    }
 };

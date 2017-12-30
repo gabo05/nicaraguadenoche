@@ -68,5 +68,18 @@ module.exports = {
 		}).catch(function(err){
 			res.serverError(err);
 		});
+	},
+	index: function (req, res) {
+		var page = req.param('page') ? parseInt(req.param('page')): 1;
+		EventService.getPaged(page)
+		.then(function(data){
+			EventService.getTotal()
+            .then(function (t) {
+                var pages = Math.ceil(t / 10);
+                return res.view('event/index', {events: data, pages: pages, current: page});
+            });
+		}).catch(function(err){
+			res.serverError(err);
+		});
 	}
 };

@@ -27,13 +27,37 @@ module.exports = {
             });
         });
 	},
-	getPublisheds: function(){
+	getPublisheds: function(page){
 		return new Promise(function(resolve, reject){
-			Article.find({published: true})
-			.exec(function (err, articles){
+			Article.native(function (err, Collection){
 				if(err) return reject(err);
-				
-				return resolve(articles);
+				Collection.aggregate([{
+					$match: {published: true}
+				},{
+					$sort:{ created: -1 }
+				},{
+					$skip: (page-1) * 10
+				}, {
+					$limit: 10
+				}]).toArray(function (err, results) {
+                    if (err) return reject(err);
+                    return resolve(results);
+                });
+			});
+		});
+	},
+	getTotal: function () {
+		return new Promise(function (resolve, reject) {
+			Article.native(function (err, Collection){
+				if(err) return reject(err);
+				Collection.aggregate([{
+					$match: {published: true}
+				},{
+					$count: "total"
+				}]).toArray(function (err, results) {
+					if (err) return reject(err);
+					return resolve(results);
+				});
 			});
 		});
 	},

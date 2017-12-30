@@ -48,6 +48,12 @@
 			<div class="form-group">
 				<label for="shortdesc" class="col-sm-2 control-label">Contenido</label>
 				<div class="col-sm-10">
+					<textarea required id="shortdesc" ng-model="article.shortdesc" class="form-control"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="content" class="col-sm-2 control-label">Contenido</label>
+				<div class="col-sm-10">
 					<summernote editable="editable" editor="editor" ng-model="article.content" on-image-upload="imageUpload(files)"></summernote>
 				</div>
 			</div>

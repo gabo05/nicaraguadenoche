@@ -1,6 +1,6 @@
 // api/services/EventService.js
 var locations = 
-[{
+[/*{
 	text: "Atlántico Norte (RAAN)",
 	value: "raan",
 	end: true
@@ -54,7 +54,7 @@ var locations =
 	text: "Madríz",
 	value: "madriz",
 	end: true
-},
+},*/
 {
 	text: "Managua",
 	value: "managua",
@@ -64,7 +64,7 @@ var locations =
 	text: "Masaya",
 	value: "masaya",
 	end: true
-},
+}/*,
 {
 	text: "Matagalpa",
 	value: "matagalpa",
@@ -84,7 +84,7 @@ var locations =
 	text: "Rivas",
 	value: "rivas",
 	end: true
-}];
+}*/];
 var temp = [{
 	name: "Re",
 	shortdescription: "Excelente disco con buena musica",

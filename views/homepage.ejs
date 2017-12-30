@@ -86,6 +86,40 @@
         </div>
     </section>
     <!--Schedule Wrap End-->
+    <!--Kode-our-speaker-heading End-->
+    <div class="kode-blog-style-2">
+        <!--KODE_TEAM_BLOG START-->
+        <div class="container">
+            <h2>Art&iacute;culos</h2>
+            <div class="row">
+            <% for(var i  = 0; i< articles.length; i++){ 
+                var article = articles[i];
+                %>
+                <div class="col-md-4">
+                    <!--TEAM_BLOG_THUMB START-->
+                    <div class="kode-team-blog">
+                        <figure>
+                            <img src="/uploads/images/blog/<%= article.path %>.jpg" alt=""/>
+                            <a href="#"><i class="fa fa-plus"></i></a>
+                        </figure>
+                        <div class="kode-thumb-caption">
+                            <h4><a href="/blog/articles/<%= article.path %>"><%= article.title %></h4>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-user"></i><%= article.author %></a></li>
+                                <li><a href="#"><i class="fa fa-clock-o"></i><%= TimeService.shortDate(article.created) %></a></li>
+                            </ul>
+                            <p><%= article.shortdesc %></p>
+                            <span><a href="/blog/articles/<%= article.path %>">Leer m&aacute;s</a></span>
+                        </div>
+                    </div>
+                    <!--TEAM_BLOG_THUMB END-->
+                </div>
+                <% } %>
+            </div>
+        </div>
+        
+    </div>
+    <!--KODE_TEAM_BLOG END-->
 </div>
 
 <div class="kode-blog-style-2">
