@@ -20,7 +20,7 @@
                 <ul ng-show="results.length > 0" class="ndn-search-results">
                     <li ng-repeat="result in results">
                         <div class="ndn-result-image">
-                            <img src="/images/places/thumbs/{{result.path}}.jpg" alt="image here">
+                            <img src="/uploads/images/places/thumbs/{{result.path}}.jpg" alt="image here">
                         </div>
                         <div>
                             <a class="ndn-result-name" target="_self" href="/places/{{result.path}}"><h4>{{result.name}}</h4></a>
@@ -45,7 +45,7 @@
             <div class="row">
                 <div class="col-md-6 no_padding">
                     <div class="kf_party_schedule_day1">
-                        <figure><img src="/images/events/<%= events[0].path %>.jpg" alt="Image Here">
+                        <figure><img src="/uploads/images/events/<%= events[0].path %>.jpg" alt="Image Here">
                         </figure>
                         <a href="#"><i class="fa fa-calendar"></i>Eventos</a>
                         <span><a href="/events/<%= events[0].path %>" target="_self"><%= events[0].title %></a></span>
@@ -64,7 +64,7 @@
                 <div class="col-md-3 no_padding">
                     <div class="kf_party_schedule_day_2">
                         <figure>
-                            <a href="/events/<%= events[i].path %>" target="_self"><img src="/images/events/<%= events[i].path %>.jpg" alt="Image Here"></a>
+                            <a href="/events/<%= events[i].path %>" target="_self"><img src="/uploads/images/events/<%= events[i].path %>.jpg" alt="Image Here"></a>
                         </figure>
                         <div class="kf_party_schedule_day_des">
                             <h5><a href="/events/<%= events[0].path %>" target="_self"><%= events[i].title %></a></h5>
