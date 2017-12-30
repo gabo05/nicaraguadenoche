@@ -43,6 +43,7 @@
             </div>
             <!--Schedule List Wrap Start-->
             <div class="row">
+                <% if(events.length > 0) { %>
                 <div class="col-md-6 no_padding">
                     <div class="kf_party_schedule_day1">
                         <figure><img src="/uploads/images/events/<%= events[0].path %>.jpg" alt="Image Here">
@@ -58,8 +59,8 @@
                             <!-- <a href="#"><i class="fa fa-clock-o"></i>11.00 - 04.00</a> -->
                         </ul>
                     </div>
-                    
                 </div>
+                <% } %>
                 <% for (var i = 1; i < events.length; i++) { %>
                 <div class="col-md-3 no_padding">
                     <div class="kf_party_schedule_day_2">
