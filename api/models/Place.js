@@ -1,0 +1,57 @@
+/**
+ * Place.js
+ *
+ * @description :: TODO: You might write a short summary of how this model works and what it represents here.
+ * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
+ */
+
+module.exports = {
+
+  attributes: {
+  	name:{
+  		type: 'string',
+  		required: true
+  	},
+  	path: {
+  		type: 'string',
+  		required: true,
+  		unique: true
+  	},
+  	description: {
+  		type: 'text',
+  		required: true
+  	},
+  	shortdesc: {
+  		type: 'text',
+  		required: true
+  	},
+  	address: {
+  		type: 'text',
+  		required: true
+  	},
+  	phone: {
+  		type: 'string',
+  		required: true
+  	},
+  	filters:{
+  		type: 'array',
+      defaultsTo: []
+  	},
+    active: {
+      type: 'boolean',
+      defaultsTo: true
+    },
+  	location: {
+  		type: 'json',
+  		attributes:{
+  			latitude: {
+  				type: 'float'
+  			},
+  			longitude: {
+  				type: 'float'
+  			}
+  		}
+  	}
+  }
+};
+

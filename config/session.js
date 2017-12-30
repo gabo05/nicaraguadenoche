@@ -98,7 +98,8 @@ module.exports.session = {
   // }
   adapter: 'connect-mongo',
   // Note: user, pass and port are optional
-  url: 'mongodb://nicaraguadenoche:ZRkdmwcygEFjMkrT@ds135486.mlab.com:35486/nicaraguadenoche',
+  // url: 'mongodb://nicaraguadenoche:ZRkdmwcygEFjMkrT@ds135486.mlab.com:35486/nicaraguadenoche',
+  url: 'mongodb://localhost:27017/nicaraguadenoche',
   collection: 'sessions',
   auto_reconnect: true,
   ssl: false,

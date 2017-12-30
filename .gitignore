@@ -117,3 +117,5 @@ nbproject
 .idea
 .node_history
 assets/libdev/**
+assets/images/events/**
+package-lock.json

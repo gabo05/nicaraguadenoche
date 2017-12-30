@@ -1,0 +1,91 @@
+<div class="row" ng-controller="eventAdminController">
+    <h2>Eventos</h2>
+	<div class="col-xs-12" ng-show="view==1">
+		<button class="btn btn-primary pull-right" ng-click="newevent()">Nuevo</button>
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<td>Nombre</td>
+					<td>Inicia</td>
+					<td>Finaliza</td>
+					<td></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="event in events">
+					<td>{{event.title}}</td>
+					<td>{{event.start_date}}</td>
+					<td>{{event.end_date}}</td>
+					<td>
+						<a href="/events/{{event.path}}" class="btn btn-primary"><i class="fa fa-eye"></i></a>
+						<button class="btn btn-success" ng-click="edit(event)"><i class="fa fa-edit"></i></button>
+						<button class="btn btn-danger" ng-click="actdect(event)"><i class="fa fa-thumbs-{{event.active?'down':'up'}}"></i></button>
+					</td>
+				</tr>
+				<tr ng-if="events.length == 0">
+					<td colspan="4">A&uacute;n no se han agregado eventos</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="col-xs-12" ng-show="view==2">
+		<div class="alert alert-success" role="alert" id="message" style="display: none">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		{{message}}
+		</div>
+		<form class="form-horizontal" ng-submit="save()">
+			<legend>Evento</legend>
+			<div class="form-group">
+				<label for="name" class="col-sm-2 control-label">Nombre</label>
+				<div class="col-sm-10">
+					<input type="text" ng-model="event.title" required class="form-control" id="name" placeholder="Nombre">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="image" class="col-sm-2 control-label">Im&aacute;gen</label>
+				<div class="col-sm-3">
+					<img id="imgpreview" src="/uploads/images/events/{{event.path}}.jpg" image-fallback="'/images/preview.png'" alt="Preview">
+				</div>
+				<div class="col-sm-7">
+					<file preview="true" preview-img="#imgpreview" multiple="false" fileread="mainimage" accept="image/*" input-name="image" input-id="image" input-class="form-control">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="description" class="col-sm-2 control-label">Descripci&oacute;n</label>
+				<div class="col-sm-10">
+					<textarea class="form-control" ng-model="event.description" required id="description" placeholder="Descripcion"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="start_date" class="col-sm-2 control-label">Fecha de Inicio</label>
+				<div class="col-sm-10">
+					<input type="datetime-local" required class="form-control" ng-model="start_date" id="start_date">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="start_date" class="col-sm-2 control-label">Fecha de Fin</label>
+				<div class="col-sm-10">
+					<input type="datetime-local" required class="form-control" ng-model="end_date" id="end_date">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="longitude" class="col-sm-2 control-label">Longitud</label>
+				<div class="col-sm-10">
+					<input type="number" step="0.00001" ng-model="event.location.longitude" class="form-control" required id="longitude" placeholder="Longitud">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="latitude" class="col-sm-2 control-label">Latitud</label>
+				<div class="col-sm-10">
+					<input type="number" step="0.00001" ng-model="event.location.latitude" class="form-control" required id="latitude" placeholder="Latitud">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default">Guardar</button>
+					<button type="button" ng-click="view=1" class="btn btn-danger">Cancelar</button>
+				</div>
+			</div>
+			</form>
+	</div>
+</div>

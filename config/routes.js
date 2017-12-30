@@ -32,9 +32,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  }
+  '/': 'HomeController.index',
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +43,33 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+  '/events/:path': 'EventController.detail',
+  '/places/:path': 'PlaceController.detail',
+  '/home/search': { 
+      view: 'home/search',
+      locals: {
+          layout: false
+      }
+  },
+  'get /administration': {
+       view: 'admin/login',
+      locals: {
+          layout: false
+      }
+  },
 
+  'post /login': 'AuthController.login',
+  '/logout': 'AuthController.logout',
+  'get /signup': 'AuthController.signup',
+  
+  '/administration/home': 'AdminController.home',
+  '/administration/places': 'AdminController.places',
+  '/administration/events': 'AdminController.events',
+  '/administration/articles': 'AdminController.articles',
+  '/administration/search': 'AdminController.search',
+  '/blog': 'BlogController.index',
+  '/blog/:page': 'BlogController.index',
+  '/blog/articles/:path': 'BlogController.detail',
+  '/calendar': 'EventController.index',
+  '/calendar/:page': 'EventController.index'
 };

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>NDN | Administraci&oacute;n</title>
+		<meta charset="utf-8">
+        <!-- Viewport mobile tag for sensible mobile support -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="/lib/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/lib/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="/lib/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/lib/css/summernote.css">
+        <link rel="stylesheet" type="text/css" href="/styles/admin.css">
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="#" class="navbar-brand">NDN</a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="/administration/places">Lugares</a></li>
+						<li><a href="/administration/events">Eventos</a></li>
+						<li><a href="/administration/articles">Blog</a></li>
+						<li><a href="/administration/search">B&uacute;squeda</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								<i class="fa fa-user"></i> <%=req.user.name%> <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Cambiar Contrase&ntilde;a</a></li>
+								<li><a href="#">Configuraci&oacute;</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="/logout">Cerrar Sesi&oacute;n</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="main container-fluid" ng-app="ndnapp">
+			<%- body %>
+		</div>
+		<script type="text/javascript" src="/lib/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/lib/js/angular.min.js"></script>
+        <script type="text/javascript" src="/lib/js/moment.min.js"></script>
+        <script type="text/javascript" src="/lib/js/underscore-min.js"></script>
+        <!--Bootstrap Javascript File-->
+        <script src="/lib/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/lib/js/summernote.min.js"></script>
+        <script type="text/javascript" src="/lib/js/angular-summernote.min.js"></script>
+        <!--Custom Scripts-->
+        <script type="text/javascript" src="/lib/js/angular-animate.min.js"></script>
+		<script type="text/javascript" src="/js/app/main.js"></script>
+		<script type="text/javascript" src="/js/app/directives/file-directive.js"></script>
+		<script type="text/javascript" src="/js/app/directives/image-fallback-directive.js"></script>
+        <script type="text/javascript" src="/js/app/factories/place-factory.js"></script>
+        <script type="text/javascript" src="/js/app/factories/article-factory.js"></script>
+		<script type="text/javascript" src="/js/app/factories/event-factory.js"></script>
+        <script type="text/javascript" src="/js/app/controllers/place-admin-controller.js"></script>
+        <script type="text/javascript" src="/js/app/controllers/article-admin-controller.js"></script>
+		<script type="text/javascript" src="/js/app/controllers/event-admin-controller.js"></script>
+	</body>
+</html>

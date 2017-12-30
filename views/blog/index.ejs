@@ -1,0 +1,89 @@
+<div class="content">
+    <!-- Kode-Header End -->
+    <div class="sub-header">
+        <!-- SUB HEADER -->
+    </div>
+    <!-- Kode-Slider End -->
+    <!--Kode-our-speaker-heading start-->
+    <div class="Kode-page-heading">
+        <div class="container">
+            <!--ROW START-->
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <h2>blog</h2>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <ul>
+                        <li>
+                            <a href="#"><i class="fa fa-home"></i>Inicio</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-angle-right"></i>Blog</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--ROW END-->
+        </div>
+    </div>
+    <!--Kode-our-speaker-heading End-->
+    <div class="kode-blog-style-2">
+        <!--KODE_TEAM_BLOG START-->
+        <div class="container">
+            <div class="row">
+            <% for(var i  = 0; i< articles.length; i++){ 
+                var article = articles[i];
+                %>
+                <div class="col-md-4">
+                    <!--TEAM_BLOG_THUMB START-->
+                    <div class="kode-team-blog">
+                        <figure>
+                            <img src="/uploads/images/blog/<%= article.path %>.jpg" alt=""/>
+                            <a href="#"><i class="fa fa-plus"></i></a>
+                        </figure>
+                        <div class="kode-thumb-caption">
+                            <h4><a href="/blog/articles/<%= article.path %>"><%= article.title %></h4>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-user"></i><%= article.author %></a></li>
+                                <li><a href="#"><i class="fa fa-clock-o"></i><%= TimeService.shortDate(article.created) %></a></li>
+                            </ul>
+                            <p><%= article.shortdesc %></p>
+                            <span><a href="/blog/articles/<%= article.path %>">Leer m&aacute;s</a></span>
+                        </div>
+                    </div>
+                    <!--TEAM_BLOG_THUMB END-->
+                </div>
+                <% } %>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!---PAGINATIOn START-->
+                    <div class="pag">
+                        <ul class="pagination">
+                            <% if(current > 1){ %>
+                            <li>
+                                <a href="/blog/<%= (current-1) %>" aria-label="Previous">
+                                <span aria-hidden="true">Ant</span>
+                                </a>
+                            </li>
+                            <% } %>
+                            <% for(var j = 1; j <= pages; j++){ %>
+                            <li><a href="/blog/<%= j %>"><%= j %></a></li>
+                            <% } %>
+                            <% if(current < pages){ %>
+                            <li>
+                                <a href="/blog/<%= (current+1) %>" aria-label="Next">
+                                <span aria-hidden="true">Sig</span>
+                                </a>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <!--PAGINATION END-->
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <!--KODE_TEAM_BLOG END-->
+</div>

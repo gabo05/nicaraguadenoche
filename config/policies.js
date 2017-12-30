@@ -48,4 +48,22 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+  '*': true,
+
+  'AdminController': {
+    '*': 'isAuthenticated'
+  },
+  'AuthController': {
+    'signup': 'isAuthenticated'
+  },
+  'PlaceController': {
+    'save': 'isAuthenticated',
+    'all': 'isAuthenticated',
+    'actdeact': 'isAuthenticated'
+  },
+  'ArticleController': {
+    'save': 'isAuthenticated',
+    'all': 'isAuthenticated',
+    'pubunpub': 'isAuthenticated'
+  }
 };

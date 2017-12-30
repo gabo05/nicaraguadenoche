@@ -1,0 +1,59 @@
+<!--Top Heading And Breadcrumb Wrap Start-->
+<div class="sub-header">
+    <!-- SUB HEADER -->
+</div>		
+<div class="Kode-page-heading">
+    <div class="container">
+        <!--ROW START-->
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <h2>Art&iacute;culo</h2>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <ul>
+                    <li>
+                        <a href="/"><i class="fa fa-home"></i>Inicio</a>
+                    </li>
+                    <li>
+                        <a href="/blog"><i class="fa fa-angle-right"></i>Blog</a>
+                    </li>
+                    <li>
+                        <a href="/blog/article/<%= article.path %>"><i class="fa fa-angle-right"></i><%= article.title %></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--ROW END-->
+    </div>
+</div>
+<!--Top Heading And Breadcrumb Wrap End-->
+
+<!--Our Speaker Wrap Start-->
+<div class="kf_content">
+    <div class="container">
+        <div class="row">
+        
+            <!--Blog Detail Wrap Start-->
+            <div class="col-md-8">
+                <div class="kf_blog_detail">
+                    <figure>
+                        <img src="/uploads/images/blog/<%= article.path %>.jpg" alt="Image Here">
+                        <figcaption class="blog_img_year">
+                            <a href="#"><%=TimeService.shortDate(article.created)%></a>
+                        </figcaption>
+                    </figure>
+                    <div class="kf_blog_detail_des">
+                        <h5><%= article.title %></h5>
+                        <ul>
+                            <!--<li><a href="#"><span>36</span> Comments</a></li>-->
+                            <li><a href="#"><%= article.author %></a></li>
+                            <li><a href="#"><%= StringService.concat(article.tags) %></a></li>
+                        </ul>
+                        <%- article.content %>
+                    </div>
+                </div>
+            </div>
+            <!--Blog Detail Wrap End-->
+        </div>    
+    </div>
+</div>

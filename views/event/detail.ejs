@@ -1,0 +1,138 @@
+<div class="content">
+	<!-- Kode-Header End -->
+	<div class="sub-header">
+		<!-- SUB HEADER -->
+	</div>
+	<!-- Kode-Slider End -->
+    
+	<!--Kode-our-speaker-heading start-->
+	<div class="Kode-page-heading">
+		<div class="container">
+			<!--ROW START-->
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					<h2><%= event.title %></h2>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<ul>
+						<li>
+							<a href="#"><i class="fa fa-home"></i>Inicio</a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-angle-right"></i>Eventos</a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-angle-right"></i><%= event.title %></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--ROW END-->
+		</div>
+	</div>
+	<!--Kode-our-speaker-heading End-->
+    
+	<div class="kode-blog-style-2">
+    
+		<div class="container">
+			<div class="row">
+            
+				<div class="col-sm-12 col-md-10 center-block">
+					<!--KODE-EVENT-CONTER-SECTION START-->
+					<div class="kode_event_counter_section">
+						<figure>
+							<img src="/uploads/images/events/<%= event.path %>.jpg" alt="">
+							<% var diff = TimeService.getUntil(event.start_date) %>
+							<ul class="countdown">
+								<li>
+									<span class="days"><%= diff.days %></span>
+									<p class="days_ref">dias</p>
+								</li>
+								<li>
+									<span class="hours"><%= diff.hours %></span>
+									<p class="hours_ref">horas</p>
+								</li>
+								<li>
+									<span class="minutes"><%= diff.minutes %></span>
+									<p class="minutes_ref">minutos</p>
+								</li>
+								<li>
+									<span class="seconds last"><%= diff.seconds %></span>
+									<p class="seconds_ref">segundos</p>
+								</li>
+							</ul>
+						</figure>
+						
+					</div>
+					<!--KODE-EVENT-CONTER-SECTION END-->
+                    
+					<!--KODE_EVENT_CONTER_CAPSTION START-->
+					<div class="kode_event_conter_capstion">
+						<h2><%= event.title %></h2>
+						<div class="counter-meta">
+							<ul class="info-event">
+								<li><i class="fa fa-map-marker"></i><a href="#"><span><%= event.location.name %></span></a></li>
+								<li><i class="fa fa-calendar"></i><a href="#"><span><%=TimeService.formatDate(event.start_date) %></span></a></li>
+								<li><a href="#"><span>- <%=TimeService.formatDate(event.end_date) %></span></a></li>
+							</ul>
+						</div>
+					</div>
+					<!--KODE_EVENT_CONTER_CAPSTION END-->
+                    <div class="other-events">
+                        <div class="row ">
+                            <div class="col-md-12">
+                                <div class="kode-event-place-holder-capstion">
+                                    <p><%= event.description %></p>
+                                    <div id="map"></div>
+                                </div>
+                            </div>
+                    
+                            <div class="col-md-12">
+                                <div class="kode-event-recent-heading">
+                                    <h2>recent events</h2>
+                                </div>
+                                <div class="row" ng-controller="eventDetailController">
+                                    <div class="col-md-6 col-sm-6" ng-repeat="event in coming_events">
+                                        <div class="kode-event-recent-info">
+                                            <div class="newevent-header">
+                                                <img alt="" ng-src="/uploads/images/events/{{event.path}}.jpg">
+                                                <div class="time-newevent"><i class="fa fa-calendar"></i> {{moment(event.start_date).format('YYYY-MM-DD')}}</div>
+                                            </div>
+                                            <div class="kode-blog-newcontent">
+                                                <h3>{{event.title}}</h3>
+                                                <a href="#"><i class="fa fa-map-marker"></i>{{event.location.name}}</a>
+                                                <p>
+                                                    {{event.description}}
+                                                </p>
+                                            </div>
+                                            <div class="kode-newblog-footer">
+                                                <a href="/events/{{event.path}}">Ver M&aacute;s</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+				</div>
+        	</div>    
+    	</div>
+	</div>
+</div>
+<script>
+	function initMap() {
+		var uluru = {lat: <%= event.location.latitude %>, lng: <%= event.location.longitude %>};
+		var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 4,
+			center: uluru
+		});
+		var marker = new google.maps.Marker({
+			position: uluru,
+			map: map
+		});
+	}
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqMBGu3pdu_ry_HLgUJTArzrBTevZCVP8&callback=initMap">
+</script>

@@ -1,4 +1,4 @@
 (function(){
 	'use strict';
-	angular.module('ndnapp', [/*'ngAnimate', 'toastr'*/]);
+	angular.module('ndnapp', ['ngAnimate', 'summernote']);
 })();
