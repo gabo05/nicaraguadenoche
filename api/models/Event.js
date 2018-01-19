@@ -16,7 +16,11 @@ module.exports = {
   		type: 'string',
   		required: true,
   		unique: true
-  	},
+	},
+	imageid:{
+		type: 'string',
+		required: true
+	},
   	start_date: {
   		type: 'datetime',
   		required: true
@@ -46,6 +50,9 @@ module.exports = {
 	},
 	active: {
 		type: 'boolean'
+	},
+	video: {
+		type: 'string'
 	}
   }
 };

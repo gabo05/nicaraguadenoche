@@ -44,14 +44,14 @@
 					});
 				});
 			},
-			uploadImage: function(file, name){
+			uploadImage: function(file, name, extension){
 				var data = new FormData();
 				data.append("image", file);
 
 				var filename = name ? name : file.name;
 
 				return new Promise(function(resolve, reject){
-					$http.post("/event/upload?filename="+filename, data, {
+					$http.post("/event/upload?filename="+filename+"&ext="+extension, data, {
 					    headers: { 'Content-Type': undefined },
 					    transformRequest: angular.identity
 					}).then(function (resp) {

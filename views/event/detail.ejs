@@ -41,7 +41,7 @@
 					<!--KODE-EVENT-CONTER-SECTION START-->
 					<div class="kode_event_counter_section">
 						<figure>
-							<img src="/uploads/images/events/<%= event.path %>.jpg" alt="">
+							<img src="https://docs.google.com/uc?id=<%= event.imageid %>" alt="">
 							<% var diff = TimeService.getUntil(event.start_date) %>
 							<ul class="countdown">
 								<li>
@@ -69,6 +69,9 @@
 					<!--KODE_EVENT_CONTER_CAPSTION START-->
 					<div class="kode_event_conter_capstion">
 						<h2><%= event.title %></h2>
+						<% if(event.video && event.video != ''){ %>
+						<iframe width="560" height="315" src="<%= event.video %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+						<% } %>
 						<div class="counter-meta">
 							<ul class="info-event">
 								<li><i class="fa fa-map-marker"></i><a href="#"><span><%= event.location.name %></span></a></li>
@@ -95,7 +98,7 @@
                                     <div class="col-md-6 col-sm-6" ng-repeat="event in coming_events">
                                         <div class="kode-event-recent-info">
                                             <div class="newevent-header">
-                                                <img alt="" ng-src="/uploads/images/events/{{event.path}}.jpg">
+                                                <img alt="" ng-src="https://docs.google.com/uc?id={{event.imageid}}" >
                                                 <div class="time-newevent"><i class="fa fa-calendar"></i> {{moment(event.start_date).format('YYYY-MM-DD')}}</div>
                                             </div>
                                             <div class="kode-blog-newcontent">
@@ -134,5 +137,5 @@
 	}
 </script>
 <script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqMBGu3pdu_ry_HLgUJTArzrBTevZCVP8&callback=initMap">
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHtTZ9gdE30Emmhaz017RH0RjpshLtujc&callback=initMap">
 </script>

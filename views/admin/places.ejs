@@ -17,7 +17,7 @@
 					<td>{{place.address}}</td>
 					<td>{{place.phone}}</td>
 					<td>
-						<a href="/places/{{place.path}}" class="btn btn-primary"><i class="fa fa-eye"></i></a>
+						<a href="/places/{{place.path}}" target="_blank" class="btn btn-primary"><i class="fa fa-eye"></i></a>
 						<button class="btn btn-success" ng-click="edit(place)"><i class="fa fa-edit"></i></button>
 						<button class="btn btn-danger" ng-click="actdect(place)"><i class="fa fa-thumbs-{{place.active?'down':'up'}}"></i></button>
 					</td>
@@ -44,10 +44,16 @@
 			<div class="form-group">
 				<label for="image" class="col-sm-2 control-label">Im&aacute;gen</label>
 				<div class="col-sm-3">
-					<img id="imgpreview" src="/images/preview.png" alt="Preview">
+					<img id="imgpreview" src="https://docs.google.com/uc?id={{place.imageid}}" image-fallback="'/images/preview.png'" alt="Preview">
 				</div>
 				<div class="col-sm-7">
 					<file preview="true" preview-img="#imgpreview" multiple="false" fileread="mainimage" accept="image/*" input-name="image" input-id="image" input-class="form-control">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="description" class="col-sm-2 control-label">Video</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" ng-model="place.video" id="video" placeholder="Url del video">
 				</div>
 			</div>
 			<div class="form-group">
@@ -85,6 +91,27 @@
 				<div class="col-sm-10">
 					<input type="number" step="0.00001" ng-model="place.location.latitude" class="form-control" required id="latitude" placeholder="Latitud">
 				</div>
+			</div>
+			<div class="form-group">
+				<div width="400" height="400" id="map"></div>
+				<script>
+				var marker;
+				var map;
+					function initMap() {
+						var uluru = {lat: -25.363, lng: 131.044};
+						map = new google.maps.Map(document.getElementById('map'), {
+							zoom: 4,
+							center: uluru
+						});
+						marker = new google.maps.Marker({
+							position: uluru,
+							map: map
+						});
+					}
+					</script>
+					<script async defer
+					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHtTZ9gdE30Emmhaz017RH0RjpshLtujc&callback=initMap">
+				</script>
 			</div>
 			<div class="form-group">
 				<label for="filter" class="col-sm-2 control-label">Filtros</label>
@@ -143,7 +170,7 @@
 				</div>
 				<div class="col-xs-offset-2 col-xs-10">
 					<ul>
-						<li ng-repeat="filter in place.filters">{{filter}}</li>
+						<li ng-repeat="filter in place.filters">{{filter}} <button class="btn btn-danger btn-small pull-right" type="button" ng-click="remove(filter)"><i class="fa fa-trash"></i></button></li>
 					</ul>
 				</div>
 			</div>

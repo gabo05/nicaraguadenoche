@@ -1,0 +1,65 @@
+<!-- header ends -->
+    
+    <!-- Kode-Header End -->
+    <div class="sub-header">
+		<!-- SUB HEADER -->
+	</div>
+    <!-- Kode-Slider End -->
+        
+    <!--Kode-our-speaker-heading start-->
+    <div class="Kode-page-heading">
+        <div class="container">
+            <!--ROW START-->
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <h2>blog</h2>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <ul>
+                        <li>
+                            <a href="#"><i class="fa fa-home"></i>Home</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-angle-right"></i>Event Gallery</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--ROW END-->
+        </div>
+    </div>
+    <!--Kode-our-speaker-heading End-->
+    <!--Gallery Wrap Start-->
+    <div class="content">
+		<div class="gallery01">
+			<div class="container">
+				
+				<div id="filterable-item-holder-1" class="filterable_container">
+                <% for(var i = 0; i < gallery.length; i++) { %>
+					<div class="col-md-4 col-sm-6 col-xs-12 filterable-item all 1 2">
+						<div class="kode_portfoiol_wrap">
+							<figure>
+								<img src="https://docs.google.com/uc?id=<%= gallery[i].gid %>" alt="<%= gallery[i].description %>">
+								<figcaption class="kode_fortfolio_detail">
+									<div class="caption-holder">
+										<a href="extra-images/bg-event-testimonial.jpg" data-rel="prettyphoto[]" class="search-portfolio">
+											<i class="fa fa-search"></i>
+										</a>
+										<a href="#" class="link-portfolio">
+											<i class="fa fa-link"></i>
+										</a>
+										<strong><%= gallery[i].description %></strong>
+									</div>
+								</figcaption>
+							</figure>
+						</div>
+					</div>
+                    <% } %>
+					<!-- kode-Portfolio end End -->
+				</div>
+				<!-- kode-Portfolio filterable_container End -->
+			</div>
+		</div>
+		<!-- kode-galler01 End -->
+	</div>
+    <!--Gallery Wrap End-->

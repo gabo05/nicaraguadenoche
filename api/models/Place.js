@@ -16,7 +16,11 @@ module.exports = {
   		type: 'string',
   		required: true,
   		unique: true
-  	},
+		},
+		imageid: {
+			type: 'string',
+			required: true
+		},
   	description: {
   		type: 'text',
   		required: true

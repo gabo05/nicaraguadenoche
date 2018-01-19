@@ -18,6 +18,9 @@ module.exports = {
 	articles: function(req, res){
 		return res.view('admin/articles', { 'layout':'adminlayout' });
 	},
+	gallery: function(req, res){
+		return res.view('admin/gallery', { 'layout':'adminlayout' });
+	},
 	search: function(req, res){
 		return res.view('admin/search', { 'layout':'adminlayout' });
 	}

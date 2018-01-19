@@ -9,6 +9,8 @@
     "bower": "^1.8.2",
     "connect-mongo": "1.1.0",
     "ejs": "2.3.4",
+    "google-auth-library": "^0.12.0",
+    "googleapis": "^24.0.0",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "1.0.0",
     "grunt-contrib-coffee": "1.0.0",
@@ -23,12 +25,16 @@
     "grunt-sync": "0.5.2",
     "include-all": "^1.0.0",
     "moment": "^2.19.4",
+    "nconf": "^0.10.0",
+    "opn": "^5.1.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "path": "^0.12.7",
     "rc": "1.0.1",
     "sails": "~0.12.14",
     "sails-disk": "~0.10.9",
-    "sails-mongo": "^0.12.2"
+    "sails-mongo": "^0.12.2",
+    "url": "^0.11.0"
   },
   "engines": {
     "node": "8.9.x"

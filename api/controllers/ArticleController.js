@@ -51,13 +51,17 @@ module.exports = {
 	},
 	upload: function(req, res){
 		var options = {
-			dirname: '../public/uploads/images/blog',
-			newname: req.param('filename')
+			//dirname: '../public/uploads/images/blog',
+			newname: req.param('filename')+'.'+req.param('ext'),
+			folder: sails.config.globals.google_drive.folders.blog
 		};
 
 		FileService.upload(req.file('image'), options)
 		.then(function(files){
-			res.ok();
+			if(req.param('update')=='true')
+				return ArticleService.updateImage(req.param('filename'), files.id);
+			else
+				res.ok(files);
 		}).catch(function(err){
 			res.serverError(err);
 		});

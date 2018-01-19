@@ -41,7 +41,7 @@
 					<!--KODE-EVENT-CONTER-SECTION START-->
 					<div class="kode_event_counter_section">
 						<figure>
-							<img src="/uploads/images/places/<%= place.path %>.jpg" alt="">
+							<img src="https://docs.google.com/uc?id=<%= place.imageid %>" alt="">
 						</figure>
 						
 					</div>
@@ -50,6 +50,9 @@
 					<!--KODE_EVENT_CONTER_CAPSTION START-->
 					<div class="kode_event_conter_capstion">
 						<h2><%= place.name %></h2>
+						<% if(place.video && place.video != ''){ %>
+						<iframe width="560" height="315" src="<%= place.video %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+						<% } %>
 						<div class="counter-meta">
 							<ul class="info-event">
 								<li><i class="fa fa-map-phone"></i><a href="#">Telefono: <span><%= place.phone %></span></a></li>
@@ -87,5 +90,5 @@
 	}
 </script>
 <script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqMBGu3pdu_ry_HLgUJTArzrBTevZCVP8&callback=initMap">
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHtTZ9gdE30Emmhaz017RH0RjpshLtujc&callback=initMap">
 </script>

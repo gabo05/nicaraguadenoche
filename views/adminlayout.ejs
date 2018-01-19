@@ -11,6 +11,13 @@
         <link rel="stylesheet" type="text/css" href="/lib/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="/lib/css/summernote.css">
         <link rel="stylesheet" type="text/css" href="/styles/admin.css">
+		<style>
+		#map {
+			width: 100%;
+			height: 400px;
+			background-color: grey;
+		}
+		</style>
 	</head>
 	<body>
 		<nav class="navbar navbar-default navbar-fixed-top">
@@ -29,6 +36,7 @@
 						<li class="active"><a href="#">Home</a></li>
 						<li><a href="/administration/places">Lugares</a></li>
 						<li><a href="/administration/events">Eventos</a></li>
+						<li><a href="/administration/gallery">Galer&iacute;a</a></li>
 						<li><a href="/administration/articles">Blog</a></li>
 						<li><a href="/administration/search">B&uacute;squeda</a></li>
 					</ul>
@@ -67,8 +75,10 @@
         <script type="text/javascript" src="/js/app/factories/place-factory.js"></script>
         <script type="text/javascript" src="/js/app/factories/article-factory.js"></script>
 		<script type="text/javascript" src="/js/app/factories/event-factory.js"></script>
+		<script type="text/javascript" src="/js/app/factories/gallery-factory.js"></script>
         <script type="text/javascript" src="/js/app/controllers/place-admin-controller.js"></script>
         <script type="text/javascript" src="/js/app/controllers/article-admin-controller.js"></script>
 		<script type="text/javascript" src="/js/app/controllers/event-admin-controller.js"></script>
+		<script type="text/javascript" src="/js/app/controllers/gallery-admin-controller.js"></script>
 	</body>
 </html>

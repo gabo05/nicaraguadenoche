@@ -17,6 +17,9 @@ module.exports = {
 			required: true,
 			unique: true
 		},
+		imageid: {
+			type: 'string'
+		},
 		content: {
 			type: 'text'
 		},
@@ -40,6 +43,9 @@ module.exports = {
 		shortdesc: {
 			type: 'text',
 			required: true
+		},
+		video: {
+			type: 'string'
 		}
 	}
 };

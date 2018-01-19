@@ -59,5 +59,14 @@ module.exports.globals = {
   *                                                                           *
   ****************************************************************************/
 
-	// models: true
+  // models: true
+  
+  google_drive: {
+    folders:{
+      events: "1IVtStvCMHZhC-N7CSsItpLp5KoRvr0da",
+      places: "178ThaDqJLnjU78UL8x7oMamO_N6i41lh",
+      gallery: "14whwaq1jMhwCzX247qmJPqU58Xql07DC",
+      blog: "1mRQLqnrc0tdGeYq03Fwnf8iIB-mBsfUj"
+    }
+  }
 };

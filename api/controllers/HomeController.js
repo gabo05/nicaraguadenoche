@@ -7,12 +7,19 @@
 
 module.exports = {
 	index: function(req, res){
+        var events, articles, images;
 		EventService.getComingSoon()
         .then(function(results){
-            ArticleService.getPublisheds(1)
-            .then(function (data) {
-                res.view('homepage', { events: results, articles: data,'layout':'homelayout' });
-            });
+            events = results;
+            return ArticleService.getPublisheds(1);
+        })
+        .then(function (data) {
+            articles = data;
+            return GalleryService.getByDisplay('slide');
+        })
+        .then(function (data2) {
+            images = data2;
+            res.view('homepage', { events: events, articles: articles, images: images, 'layout':'homelayout' });
         })
         .catch(function(err){
             res.serverError(err);

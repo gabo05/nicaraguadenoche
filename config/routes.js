@@ -66,6 +66,7 @@ module.exports.routes = {
   '/administration/places': 'AdminController.places',
   '/administration/events': 'AdminController.events',
   '/administration/articles': 'AdminController.articles',
+  '/administration/gallery': 'AdminController.gallery',
   '/administration/search': 'AdminController.search',
   '/blog': 'BlogController.index',
   '/blog/:page': 'BlogController.index',

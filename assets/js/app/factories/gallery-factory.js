@@ -1,47 +1,39 @@
 (function(app){
-	'use strict'
-	app.factory('placeFactory', ['$http', function($http){
+	'use strict';
+	app.factory('galleryFactory', ['$http', function($http){
 		return{
 			getAll: function(){
 				return new Promise(function(resolve, reject){
-					$http.get('/place/all')
+					$http.get('/gallery/all')
 					.then(function(resp){
 						resolve(resp.data);
 					});
 				});
 			},
-			getActives: function(){
+			getByDisplay: function(display){
 				return new Promise(function(resolve, reject){
-					$http.get('/place/actives')
+					$http.get('/gallery/display/?display='+display)
 					.then(function(resp){
 						resolve(resp.data);
 					});
 				});
 			},
-			save: function(place){
+			save: function(image){
 				return new Promise(function(resolve, reject){
-					$http.post('/place/save', place)
+					$http.post('/gallery/save', image)
 					.then(function(resp){
 						resolve(resp.data);
 					});
 				});
 			},
-			actDeact: function(id, act){
-				return new Promise(function(resolve, reject){
-					$http.post('/place/actdeact', {id: id, act: act})
-					.then(function(resp){
-						resolve(resp.data);
-					});
-				});
-			},
-			uploadImage: function(file, name, extension){
+			upload: function(file, name, extension){
 				var data = new FormData();
 				data.append("image", file);
 
 				var filename = name ? name : file.name;
 
 				return new Promise(function(resolve, reject){
-					$http.post("/place/upload?filename="+filename+"&ext="+extension, data, {
+					$http.post("/gallery/upload?filename="+filename+"&ext="+extension, data, {
 					    headers: { 'Content-Type': undefined },
 					    transformRequest: angular.identity
 					}).then(function (resp) {
@@ -51,6 +43,6 @@
 					});
 				});
 			}
-		}
+		};
 	}]);
 })(angular.module('ndnapp'));

@@ -41,7 +41,7 @@
 			artFact.save($scope.article).then(function(data){
 				showMessage('Articulo guardado correctamente');
 				var mainimage = Array.prototype.slice.call($scope.mainimage)[0];
-				artFact.uploadImage(mainimage, data.path +'.'+ mainimage.name.split('.')[1]);
+				artFact.uploadImage(mainimage, data.path, mainimage.name.split('.')[1], true);
 				document.getElementById('imgpreview').src = '/images/preview.png';
 				document.getElementById('image').value='';
 				$scope.article = {
@@ -63,9 +63,9 @@
 		    var filesArr = Array.prototype.slice.call(files);
 
 		    filesArr.forEach(function(file){
-		    	artFact.uploadImage(file)
+		    	artFact.uploadImage(file, null,  file.name.split('.')[1], false)
 		    	.then(function(data){
-					$scope.editor.summernote('editor.insertImage', '/uploads/images/blog/'+file.name);
+					$scope.editor.summernote('editor.insertImage', 'https://docs.google.com/uc?id='+data.id);
 		    	}).catch(function(err){
 		    		console.error(err);
 		    	});

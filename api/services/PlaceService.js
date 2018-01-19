@@ -57,5 +57,16 @@ module.exports = {
                 return resolve(place);
             });
         });
+    },
+    updateImage: function (path, imageid) {
+        return new Promise(function (resolve, reject) {
+            Place.native(function (err, collection) {
+                if(err) reject(err);
+
+                collection.update({path: path}, {$set: { imageid: imageid }}, {"upsert": true}, function (err, updated){
+			        resolve(updated);
+			    });
+            });
+        });
     }
 }
