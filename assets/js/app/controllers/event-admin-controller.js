@@ -79,8 +79,8 @@
 		};
 		google.maps.event.addListener(map, 'click', function(evt){
 			
-			$scope.place.location.latitude = parseFloat(evt.latLng.lat().toFixed(3));
-			$scope.place.location.longitude = parseFloat(evt.latLng.lng().toFixed(3));
+			$scope.event.location.latitude = parseFloat(evt.latLng.lat().toFixed(3));
+			$scope.event.location.longitude = parseFloat(evt.latLng.lng().toFixed(3));
 			$scope.showMarker();
 			$scope.$apply();
 		});

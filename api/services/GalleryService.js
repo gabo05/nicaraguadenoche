@@ -2,7 +2,7 @@ module.exports = {
     save: function (image) {
         return new Promise(function(resolve, reject){
 			Gallery.native(function (err, Collection){
-			    Collection.update({"gid": image.gid}, {"$set": image}, {"upsert": true}, function (err, updated){
+			    Collection.update({"gid": new ObjectId(image.gid)}, {"$set": image}, {"upsert": true}, function (err, updated){
 			        resolve(image);
 			    })
 			});
