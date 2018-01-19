@@ -30,7 +30,7 @@
 				var data = new FormData();
 				data.append("image", file);
 
-				var filename = name ? name : file.name;
+				var filename = name ? name.replace(/ /, '') : file.name.replace(/ /, '');
 
 				return new Promise(function(resolve, reject){
 					$http.post("/gallery/upload?filename="+filename+"&ext="+extension, data, {

@@ -1,11 +1,13 @@
 <!--Banner Wrap Start-->
 <div class="kf_party_banner">
     <ul class="party_main_banner">
+        <% for(var i = 0; i < images.length; i++){ %>
         <li>
-            <img src="/images/back.jpg" alt="Image Here">
-            <search settings="settings" return-start="{{true}}" show-results="displayResults"></search>
+            <img src="https://docs.google.com/uc?id=<%= images[i].gid %>" alt="<%= images[i].description %>">
         </li>
+        <% } %>
     </ul>
+    <search settings="settings" return-start="{{true}}" show-results="displayResults"></search>
 </div>
 <!--Banner Wrap End-->
 <!--Party Content Wrap Start-->

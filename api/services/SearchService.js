@@ -140,7 +140,7 @@ module.exports = {
 						]
 					},
 					{
-						text: "Ir a un bar o una disco",
+						text: "Bar o disco",
 						value: "party",
 						question: "¿Qué prefieres?",
 						options: [

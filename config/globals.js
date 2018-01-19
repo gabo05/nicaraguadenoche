@@ -61,12 +61,20 @@ module.exports.globals = {
 
   // models: true
   
+  // google_drive: {
+  //   folders:{
+  //     events: "1IVtStvCMHZhC-N7CSsItpLp5KoRvr0da",
+  //     places: "178ThaDqJLnjU78UL8x7oMamO_N6i41lh",
+  //     gallery: "14whwaq1jMhwCzX247qmJPqU58Xql07DC",
+  //     blog: "1mRQLqnrc0tdGeYq03Fwnf8iIB-mBsfUj"
+  //   }
+  // },
   google_drive: {
     folders:{
-      events: "1IVtStvCMHZhC-N7CSsItpLp5KoRvr0da",
-      places: "178ThaDqJLnjU78UL8x7oMamO_N6i41lh",
-      gallery: "14whwaq1jMhwCzX247qmJPqU58Xql07DC",
-      blog: "1mRQLqnrc0tdGeYq03Fwnf8iIB-mBsfUj"
+      events: "1h7InbWSAPUL0Cnf5-5lJWv_-scRFdnBD",
+      places: "1KO8-0m1mdU6NRgkZSdfbZbhcEEgV6xqZ",
+      gallery: "1z_v7aC4YbHasPp2WZiJ6aLp42HD-n_lR",
+      blog: "11lzs2zy2ZEscXbgvq0DATxnbTwpfxly3"
     }
   }
 };
