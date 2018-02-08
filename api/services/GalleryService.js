@@ -1,8 +1,10 @@
+var ObjectId = require('mongodb').ObjectID;
 module.exports = {
     save: function (image) {
+        delete image._id;
         return new Promise(function(resolve, reject){
 			Gallery.native(function (err, Collection){
-			    Collection.update({"gid": new ObjectId(image.gid)}, {"$set": image}, {"upsert": true}, function (err, updated){
+			    Collection.update({"gid": image.gid}, {"$set": image}, {"upsert": true}, function (err, updated){
 			        resolve(image);
 			    })
 			});

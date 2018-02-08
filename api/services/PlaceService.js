@@ -68,5 +68,19 @@ module.exports = {
 			    });
             });
         });
-    }
+	},
+	getSuggesteds: function () {
+		return new Promise(function (resolve, reject) {
+			Place.native(function (err, collection) {
+				if(err) reject(err);
+
+				collection.aggregate([{
+					$limit: 4
+				}]).toArray(function (err, results) {
+                    if (err) return reject(err);
+                    return resolve(results);
+                });
+			});
+		});
+	}
 }

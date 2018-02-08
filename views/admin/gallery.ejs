@@ -5,14 +5,19 @@
 		<table class="table table-bordered table-hover">
 			<thead>
 				<tr>
-					<td>Imagen</td>
+					<td>Recurso</td>
+					<td>Tipo</td>
 					<td>Descripci&oacute;n</td>
 					<td></td>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="gimg in images">
-					<td><img style="max-width: 200px;" src="https://docs.google.com/uc?id={{gimg.gid}}" alt="{{gimg.description}}"></td>
+					<td>
+						<img ng-if="gimg.type=='img'" style="max-width: 200px;" src="https://docs.google.com/uc?id={{gimg.gid}}" alt="{{gimg.description}}">
+						<a ng-if="gimg.type=='video'" href="https://www.youtube.com/watch?v={{gimg.video}}"><img style="max-width: 200px;" src="https://img.youtube.com/vi/{{gimg.video}}/0.jpg" alt="{{gimg.description}}"></a>
+					</td>
+					<td>{{gimg.type}}</td>
 					<td>{{gimg.description}}</td>
 					<td>
 						<a href="https://docs.google.com/uc?id={{gimg.gid}}" class="btn btn-primary"><i class="fa fa-eye"></i></a>
@@ -31,8 +36,16 @@
 		{{message}}
 		</div>
 		<form class="form-horizontal" ng-submit="save()">
-			<legend>Imagen</legend>
-			<div class="form-group">
+			<legend>Elemento de Galeria</legend>
+			<div class="radio">
+				<label for="video" class="col-sm-2 control-label">Tipo de Recurso</label>
+				<div class="col-sm-10 radio">
+					<label><input class="" value="img" type="radio" name="typ" ng-model="image.type" id="type">Imagen</label>
+					<label><input class="" value="video" type="radio" name="typ" ng-model="image.type" id="type">Video</label>
+				</div>
+				<br>
+			</div>
+			<div class="form-group" ng-show="image.type == 'img'">
 				<label for="image" class="col-sm-2 control-label">Im&aacute;gen</label>
 				<div class="col-sm-3">
 					<img id="imgpreview" src="https://docs.google.com/uc?id={{image.gid}}" image-fallback="'/images/preview.png'" alt="Preview">
@@ -41,10 +54,24 @@
 					<file preview="true" preview-img="#imgpreview" multiple="false" fileread="resource" accept="image/*" input-name="image" input-id="image" input-class="form-control">
 				</div>
 			</div>
+			<div class="form-group" ng-show="image.type == 'video'">
+				<label for="video" class="col-sm-2 control-label">Url Video</label>
+				<div class="col-sm-10">
+					<input class="form-control" type="text" ng-model="image.video" id="video" placeholder="Url Video">
+				</div>
+			</div>
 			<div class="form-group">
 				<label for="description" class="col-sm-2 control-label">Descripci&oacute;n</label>
 				<div class="col-sm-10">
 					<textarea class="form-control" ng-model="image.description" required id="description" placeholder="Descripcion"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="category" class="col-sm-2 control-label">Categor&iacute;a</label>
+				<div class="col-sm-10">
+					<select class="form-control" id="category" ng-model="image.category">
+						<option ng-repeat="category in categories" value="{{category.keyname}}">{{category.name}}</option>
+					</select>
 				</div>
 			</div>
 			<div class="form-group">

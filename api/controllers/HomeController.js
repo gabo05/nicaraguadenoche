@@ -7,7 +7,7 @@
 
 module.exports = {
 	index: function(req, res){
-        var events, articles, images;
+        var events, articles, images, suggesteds, gallery, categories;
 		EventService.getComingSoon()
         .then(function(results){
             events = results;
@@ -19,7 +19,19 @@ module.exports = {
         })
         .then(function (data2) {
             images = data2;
-            res.view('homepage', { events: events, articles: articles, images: images, 'layout':'homelayout' });
+            return PlaceService.getSuggesteds();
+        })
+        .then(function (data3) {
+            suggesteds = data3;
+            return GalleryService.getByDisplay('gallery');
+        })
+        .then(function (data4) {
+            gallery = data4;
+            return CategoryService.getByType('gallery');
+        })
+        .then(function (data5) {
+            categories = data5;
+            res.view('homepage', { categories: categories, gallery: gallery, suggesteds: suggesteds, events: events, articles: articles, images: images, 'layout':'homelayout' });
         })
         .catch(function(err){
             res.serverError(err);

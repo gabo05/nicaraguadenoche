@@ -63,7 +63,8 @@
 			eventFact.save($scope.event).then(function(data){
 				showMessage('Evento guardado correctamente');
 				var mainimage = Array.prototype.slice.call($scope.mainimage)[0];
-				eventFact.uploadImage(mainimage, data.path , mainimage.name.split('.')[1]);
+				if(mainimage)
+					eventFact.uploadImage(mainimage, data.path , mainimage.name.split('.')[1]);
 				document.getElementById('imgpreview').src = '/images/preview.png';
 				document.getElementById('image').value='';
 				$scope.event = {

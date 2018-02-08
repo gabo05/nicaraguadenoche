@@ -10,34 +10,30 @@
     <search settings="settings" return-start="{{true}}" show-results="displayResults"></search>
 </div>
 <!--Banner Wrap End-->
-<!--Party Content Wrap Start-->
-<div class="kf_party_content">
-    <section class="kf_party_schedule_bg">
-        <div class="container">
-            <div class="kf_heading_1">
-                <h2>Resultados</h2>
-                <span ng-show="results.length > 0">Estos son los lugares que te recomendamos: </span>
-            </div>
-            <div id="ndn-search-results">
-                <ul ng-show="results.length > 0" class="ndn-search-results">
-                    <li ng-repeat="result in results">
-                        <div class="ndn-result-image">
-                            <img src="https://docs.google.com/uc?id={{result.imageid}}" alt="image here">
-                        </div>
-                        <div>
-                            <a class="ndn-result-name" target="_self" href="/places/{{result.path}}"><h4>{{result.name}}</h4></a>
-                            <p>{{result.shortdescription}}</p>
-                            <a class="ndn-result-phone" target="_self" href="tel:{{result.phone}}"><span>Tel&eacute;fono: </span>{{result.phone}}</a>
-                            <a class="ndn-result-seemore" target="_self" href="/places/{{result.path}}">Ver m&aacute;s...</a>
-                        </div>
-                    </li>
-                </ul>
-                <span ng-show="results.length == 0">No se encontraron resultados para tu b&uacute;squeda: </span>
+<!--Sugested Places-->
+<div class="container-fluid">
+    <div class="ndn-suggested row">
+        <h2>Lugares Sugeridos</h2>
+        <% for(var i = 0; i<suggesteds.length; i++){
+            var place = suggesteds[i];
+            %>
+        <div class="ndn-suggested-item col-xs-12 col-md-3">
+            <div class="thumbnail">
+                <img src="https://docs.google.com/uc?id=<%= place.imageid %>" alt="<%= place.shortdesc %>">
+                <div class="caption">
+                    <h3><%= place.name %></h3>
+                    <p><%= place.shortdesc %></p>
+                </div>
             </div>
         </div>
-    </section>
+        <% } %>
+    </div>
+</div>
+<!--End Sugested Places-->
+<!--Party Content Wrap Start-->
+<div class="kf_party_content">
     <!--Schedule Wrap Start-->
-    <section class="kf_party_schedule_bg">
+    <section class="ndn-events kf_party_schedule_bg">
         <div class="container">
             <div class="kf_heading_1">
                 <h2>Eventos Pr&oacute;ximos</h2>
@@ -88,7 +84,6 @@
             
         </div>
     </section>
-    <!--Schedule Wrap End-->
     <!--Kode-our-speaker-heading End-->
     <div class="kode-blog-style-2">
         <!--KODE_TEAM_BLOG START-->
@@ -120,9 +115,91 @@
                 <% } %>
             </div>
         </div>
-        
     </div>
     <!--KODE_TEAM_BLOG END-->
+    <!--Gallery Wrap Start-->
+    <section class="kf_party_gallery_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="kf_heading_1">
+                        <h2>Galeria</h2>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="kf_party_gallery_nav">
+                        <ul id="filterable-item-filter-1">
+                            <% for(var i = 0; i<categories.length; i++){
+                                var cat = categories[i];
+                                %>
+                            <li><a data-value="<%=cat.keyname%>" href="#"><%= cat.name %></a></li>
+                            <% } %>
+                            <li><a data-value="all" href="#">Todo</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="filterable-item-holder-1" class="filterable_container">
+            <% for(var i =0; i<gallery.length; i++){
+                var imgall = gallery[i];
+                %>
+            <%if(imgall.type == 'img'){ %>
+            <div class="col-md-3 col-sm-6 no_padding filterable-item all <%=imgall.category%>">
+                <div class="kf_party_gallery party_style_1">
+                    <figure>
+                        <img src="https://docs.google.com/uc?id=<%= imgall.gid %>" alt="<%=imgall.description%>">
+                    </figure>
+                    <div class="party_style1_des">
+                        <a href="#"><i class="icon-magnifier13"></i></a>
+                    </div>
+                </div>
+            </div>
+            <% }else{ %>
+            <div class="col-md-3 col-sm-6 no_padding filterable-item all <%=imgall.category%>">
+                <div class="kf_party_gallery party_style_1">
+                    <figure>
+                        <a href="https://www.youtube.com/watch?v=<%= imgall.video %>"><img src="https://img.youtube.com/vi/<%= imgall.video %>/0.jpg" alt="<%=imgall.description %>"></a>
+                    </figure>
+                    <div class="party_style1_des">
+                        <a href="#"><i class="icon-magnifier13"></i></a>
+                    </div>
+                </div>
+            </div>
+            <% } } %>
+        </div>
+        <div class="kf_party_gallery_wrap">
+            <a href="#">Ver todos</a>
+        </div>
+    </section>
+    <!--Gallery Wrap End-->
+    <section class="kf_party_schedule_bg">
+        <div class="container">
+            <div class="kf_heading_1">
+                <h2>Resultados</h2>
+                <span ng-show="results.length > 0">Estos son los lugares que te recomendamos: </span>
+            </div>
+            <div id="ndn-search-results">
+                <ul ng-show="results.length > 0" class="ndn-search-results">
+                    <li ng-repeat="result in results">
+                        <div class="ndn-result-image">
+                            <img src="https://docs.google.com/uc?id={{result.imageid}}" alt="image here">
+                        </div>
+                        <div>
+                            <a class="ndn-result-name" target="_self" href="/places/{{result.path}}"><h4>{{result.name}}</h4></a>
+                            <p>{{result.shortdescription}}</p>
+                            <a class="ndn-result-phone" target="_self" href="tel:{{result.phone}}"><span>Tel&eacute;fono: </span>{{result.phone}}</a>
+                            <a class="ndn-result-seemore" target="_self" href="/places/{{result.path}}">Ver m&aacute;s...</a>
+                        </div>
+                    </li>
+                </ul>
+                <span ng-show="results.length == 0">No se encontraron resultados para tu b&uacute;squeda: </span>
+            </div>
+        </div>
+    </section>
+    <!--Schedule Wrap End-->
 </div>
 
 <div class="kode-blog-style-2">

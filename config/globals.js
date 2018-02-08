@@ -60,7 +60,7 @@ module.exports.globals = {
   ****************************************************************************/
 
   // models: true
-  
+  //Develop
   // google_drive: {
   //   folders:{
   //     events: "1IVtStvCMHZhC-N7CSsItpLp5KoRvr0da",
@@ -69,6 +69,7 @@ module.exports.globals = {
   //     blog: "1mRQLqnrc0tdGeYq03Fwnf8iIB-mBsfUj"
   //   }
   // },
+  //Production
   google_drive: {
     folders:{
       events: "1h7InbWSAPUL0Cnf5-5lJWv_-scRFdnBD",

@@ -1,6 +1,6 @@
 (function (app) {
     'use strict';
-    app.controller('galleryAdminController', ['$scope', 'galleryFactory', function ($scope, gallery) {
+    app.controller('galleryAdminController', ['$scope', 'galleryFactory', 'categoryFactory', function ($scope, gallery, category) {
         $scope.image = {
             display: []
         };
@@ -10,6 +10,9 @@
             gallery.getAll()
             .then(function (data) {
                 $scope.images = data;
+                return category.getByType('gallery');
+            }).then(function (data) {
+                $scope.categories = data;
                 $scope.$apply();
             });
         };
@@ -21,15 +24,27 @@
 				}, 3000);
 		};
         $scope.save = function(){
-            gallery.upload($scope.resource[0], $scope.resource[0].name, '')
-            .then(function(data){
-                $scope.image.gid = data.id;
-                return gallery.save($scope.image);
-            })
-            .then(function name(data) {
-                showMessage('Lugar guardado correctamente');
-                $scope.loadImages();
-            });
+            if($scope.image.type=='video'){
+                var videoregex = /https:\/\/www[.]youtube[.]com\/watch[?]v=.+/;
+                if(videoregex.test($scope.image.video)){
+                    $scope.image.video = $scope.image.video.replace(/https:\/\/www[.]youtube[.]com\/watch[?]v=/, '');
+                }
+            }
+            if($scope.resource && $scope.image.type=='img')
+                gallery.upload($scope.resource[0], $scope.resource[0].name, '')
+                .then(function(data){
+                    $scope.image.gid = data.id;
+                    return gallery.save($scope.image);
+                })
+                .then(function name(data) {
+                    showMessage('Item de galeria guardado correctamente');
+                    $scope.loadImages();
+                });
+            else
+                gallery.save($scope.image).then(function name(data) {
+                    showMessage('Item de galeria guardado correctamente');
+                    $scope.loadImages();
+                });
         };
         $scope.newimage = function () {
             $scope.image = {

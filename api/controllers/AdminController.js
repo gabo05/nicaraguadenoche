@@ -21,6 +21,9 @@ module.exports = {
 	gallery: function(req, res){
 		return res.view('admin/gallery', { 'layout':'adminlayout' });
 	},
+	categories: function(req, res){
+		return res.view('admin/categories', { 'layout':'adminlayout' });
+	},
 	search: function(req, res){
 		return res.view('admin/search', { 'layout':'adminlayout' });
 	}

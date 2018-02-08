@@ -295,7 +295,7 @@ $(document).ready(function(){
 		   Filterable Gallery Script Start
 	  ============================================================== */
 	if($('#filterable-item-holder-1').length){
-		jQuery(window).load(function($) {
+		$(window).on('load', function(evt) {
 			var filter_container = jQuery('#filterable-item-holder-1');
 
 			filter_container.children().css('position','relative');	
