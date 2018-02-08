@@ -38,7 +38,7 @@
                     <!--TEAM_BLOG_THUMB START-->
                     <div class="kode-team-blog">
                         <figure>
-                            <img src="/uploads/images/events/<%= event.path %>.jpg" alt=""/>
+                            <img src="https://docs.google.com/uc?id=<%= event.imageid %>.jpg" alt=""/>
                             <a href="#"><i class="fa fa-plus"></i></a>
                         </figure>
                         <div class="kode-thumb-caption">
@@ -62,17 +62,17 @@
                         <ul class="pagination">
                             <% if(current > 1){ %>
                             <li>
-                                <a href="/blog/<%= (current-1) %>" aria-label="Previous">
+                                <a href="/event/<%= (current-1) %>" aria-label="Previous">
                                 <span aria-hidden="true">Ant</span>
                                 </a>
                             </li>
                             <% } %>
                             <% for(var j = 1; j <= pages; j++){ %>
-                            <li><a href="/blog/<%= j %>"><%= j %></a></li>
+                            <li><a href="/event/<%= j %>"><%= j %></a></li>
                             <% } %>
                             <% if(current < pages){ %>
                             <li>
-                                <a href="/blog/<%= (current+1) %>" aria-label="Next">
+                                <a href="/event/<%= (current+1) %>" aria-label="Next">
                                 <span aria-hidden="true">Sig</span>
                                 </a>
                             </li>
