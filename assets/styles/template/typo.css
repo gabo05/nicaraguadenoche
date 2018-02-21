@@ -15,7 +15,7 @@ html {
 body {
 	margin:0;
 	min-width:320px;
-	font:14px/24px 'moon', Arial, Helvetica, sans-serif;
+	font:14px/24px 'Open Sans', Arial, Helvetica, sans-serif;
 	overflow-y: scroll;
 	-webkit-text-size-adjust:100%;
 	-ms-text-size-adjust:none;

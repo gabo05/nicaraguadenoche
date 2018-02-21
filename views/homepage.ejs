@@ -19,9 +19,9 @@
             %>
         <div class="ndn-suggested-item col-xs-12 col-md-3">
             <div class="thumbnail">
-                <img src="https://docs.google.com/uc?id=<%= place.imageid %>" alt="<%= place.shortdesc %>">
+                <a href="/places/<%= place.path %>"><img src="https://docs.google.com/uc?id=<%= place.imageid %>" alt="<%= place.shortdesc %>"></a>
                 <div class="caption">
-                    <h3><%= place.name %></h3>
+                    <h3><a href="/places/<%= place.path %>"><%= place.name %></a></h3>
                     <p><%= place.shortdesc %></p>
                 </div>
             </div>
@@ -46,12 +46,12 @@
                     <div class="kf_party_schedule_day1">
                         <figure><img src="https://docs.google.com/uc?id=<%= events[0].imageid %>" alt="Image Here">
                         </figure>
-                        <a href="#"><i class="fa fa-calendar"></i>Eventos</a>
-                        <span><a href="/events/<%= events[0].path %>" target="_self"><%= events[0].title %></a></span>
+                        <a href="/calendar"><i class="fa fa-calendar"></i>Eventos</a>
+                        <!-- <span><a href="/events/<%= events[0].path %>" target="_self"><%= events[0].title %></a></span>-->
                     </div>
                     
                     <div class="kf_schedule_day1_des">
-                        <p><%= events[0].description %></p>
+                        <p><span><a href="/events/<%= events[0].path %>" target="_self"><%= events[0].title %></a></span></p>
                         <ul>
                             <a href="#"><i class="fa fa-calendar"></i><%= TimeService.formatDate(events[0].start_date) %></a>
                             <!-- <a href="#"><i class="fa fa-clock-o"></i>11.00 - 04.00</a> -->
