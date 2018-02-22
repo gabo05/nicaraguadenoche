@@ -23,50 +23,36 @@
 			});
 		};
 		$scope.loadArticles();
+		$scope.editor = grapesjs.init({
+			container : '#editor',
+			plugins: ['gjs-preset-newsletter'],
+			pluginsOpts: {
+				'gjs-preset-newsletter': {
+				modalTitleImport: 'Import template',
+				// ... other options
+				}},
+			components: '',
+			style: '',
+			assetManager: {
+				uploadFile: function (e) {
+					var files = e.dataTransfer ? e.dataTransfer.files : e.target.files;
+					$scope.imageUpload(files);
+				}
+			}
+		});
 		$scope.newart = function(){
 			$scope.article = {
 				tags: []
 			};
 			$scope.view = 2;
-			$scope.editor = grapesjs.init({
-				container : '#editor',
-				plugins: ['gjs-preset-newsletter'],
-				pluginsOpts: {
-					'gjs-preset-newsletter': {
-					modalTitleImport: 'Import template',
-					// ... other options
-					}},
-				components: '',
-				style: '',
-				assetManager: {
-					uploadFile: function (e) {
-						var files = e.dataTransfer ? e.dataTransfer.files : e.target.files;
-						$scope.imageUpload(files);
-					}
-				}
-			});
+			$scope.editor.BlockManager.getAll().forEach(block => block && $scope.editor.BlockManager.remove(block.get('id')));
 			$scope.editor.setComponents('');
 		};
 		$scope.edit = function(art){
 			$scope.article = art;
 			$scope.view = 2;
-			$scope.editor = grapesjs.init({
-				container : '#editor',
-				plugins: ['gjs-preset-newsletter'],
-				pluginsOpts: {
-					'gjs-preset-newsletter': {
-					modalTitleImport: 'Import template',
-					// ... other options
-					}},
-				components: art.content,
-				style: '',
-				assetManager: {
-					uploadFile: function (e) {
-						var files = e.dataTransfer ? e.dataTransfer.files : e.target.files;
-						$scope.imageUpload(files);
-					}
-				}
-			});
+			$scope.editor.BlockManager.getAll().forEach(block => block && $scope.editor.BlockManager.remove(block.get('id')));
+			$scope.editor.setComponents($scope.article.content);
 		};
 		$scope.pubUnpub = function(art){
 			art.published = !place.published;
