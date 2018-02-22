@@ -78,14 +78,23 @@
 				showMessage('Hubo un problema al guardar el evento');
 			});
 		};
-		google.maps.event.addListener(map, 'click', function(evt){
+		setTimeout(function () {
+			google.maps.event.addListener(map, 'click', function(evt){
 			
-			$scope.event.location.latitude = parseFloat(evt.latLng.lat().toFixed(3));
-			$scope.event.location.longitude = parseFloat(evt.latLng.lng().toFixed(3));
-			$scope.showMarker();
-			$scope.$apply();
-		});
+				$scope.event.location.latitude = parseFloat(evt.latLng.lat().toFixed(3));
+				$scope.event.location.longitude = parseFloat(evt.latLng.lng().toFixed(3));
+				$scope.showMarker();
+				$scope.$apply();
+			});
+		}, 3000);
+		
 		$scope.showMarker = function(){
+			if(!google){
+				setTimeout(() => {
+					$scope.showMarker();
+				}, 1500);
+				return;
+			}
 			var uluru = { lat: $scope.event.location.latitude, lng: $scope.event.location.longitude };
 			marker.setMap(null);
 			marker = new google.maps.Marker({

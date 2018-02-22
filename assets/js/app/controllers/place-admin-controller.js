@@ -48,13 +48,16 @@
 			place.active = !place.active;
 			placeFact.actDeact(place.id, place.active);
 		};
-		google.maps.event.addListener(map, 'click', function(evt){
+		setTimeout(() => {
+			google.maps.event.addListener(map, 'click', function(evt){
 			
-			$scope.place.location.latitude = parseFloat(evt.latLng.lat().toFixed(3));
-			$scope.place.location.longitude = parseFloat(evt.latLng.lng().toFixed(3));
-			$scope.showMarker();
-			$scope.$apply();
-		});
+				$scope.place.location.latitude = parseFloat(evt.latLng.lat().toFixed(3));
+				$scope.place.location.longitude = parseFloat(evt.latLng.lng().toFixed(3));
+				$scope.showMarker();
+				$scope.$apply();
+			});
+		}, 3000);
+		
 		$scope.changeUrl = function () {
 			var videoregex = /https:\/\/www[.]youtube[.]com\/watch[?]v=.+/;
 			if(videoregex.test($scope.place.video)){
@@ -62,6 +65,12 @@
 			}
 		};
 		$scope.showMarker = function(){
+			if(!google){
+				setTimeout(() => {
+					$scope.showMarker();
+				}, 1500);
+				return;
+			}
 			var uluru = { lat: $scope.place.location.latitude, lng: $scope.place.location.longitude };
 			marker.setMap(null);
 			marker = new google.maps.Marker({
