@@ -71,6 +71,25 @@
                             </div>
                         </div>
                     </div>
+					<% if(place.images && place.images.length > 0) { %>
+					<div class="other-events">
+						<div class="ndn-image-preview">
+							<img src="" alt="">
+						</div>
+						<h3>Fotos del lugar</h3>
+                        <div class="row ">
+							<% for(var i = 0; i < place.images.length; i++){
+								var image = place.images[i];
+								%>
+                            <div class="col-xs-6 col-md-3">
+								<a href="https://docs.google.com/uc?id=<%= image.gid %>" data-alt="<%= image.description %>" class="thumbnail ndn-preview">
+									<img src="https://docs.google.com/uc?id=<%= image.gid %>" alt="<%= image.description %>">
+								</a>
+							</div>
+							<% } %>
+                        </div>
+                    </div>
+					<% } %>
 				</div>
         	</div>    
     	</div>

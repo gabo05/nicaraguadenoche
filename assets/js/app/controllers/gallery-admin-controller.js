@@ -1,10 +1,11 @@
 (function (app) {
     'use strict';
-    app.controller('galleryAdminController', ['$scope', 'galleryFactory', 'categoryFactory', function ($scope, gallery, category) {
+    app.controller('galleryAdminController', ['$scope', 'galleryFactory', 'categoryFactory', 'placeFactory', function ($scope, gallery, category, place) {
         $scope.image = {
             display: []
         };
         $scope.images = [];
+        $scope.places = [];
         $scope.loadImages = function () {
             $scope.view = 1;
             gallery.getAll()
@@ -13,6 +14,9 @@
                 return category.getByType('gallery');
             }).then(function (data) {
                 $scope.categories = data;
+                return place.getAll();
+            }).then(function (data) {
+                $scope.places = data;
                 $scope.$apply();
             });
         };

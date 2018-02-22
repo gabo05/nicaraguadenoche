@@ -39,10 +39,16 @@ module.exports = {
 		});
 	},
 	detail: function(req, res){
+		var place = {};
 		PlaceService.getByPath(req.param('path'))
         .then(function(pla){
-            res.view({place: pla });
-        })
+			place = pla;
+            return GalleryService.getByPlace(place.id);
+		})
+		.then(function (images) {
+			place.images = images || [];
+			res.view({place: place });
+		})
         .catch(function(err){
             res.serverError(err);
         });

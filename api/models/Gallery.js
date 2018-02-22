@@ -17,6 +17,9 @@ module.exports = {
         },
         type:{
             type: 'string'
+        },
+        place:{
+            type: 'objectid'
         }
     }
 }

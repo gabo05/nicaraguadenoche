@@ -22,6 +22,16 @@ $(document).ready(function(){
 			}           
 		});
 	}
+	$('.ndn-preview').on('click', function (evt) {
+		evt.preventDefault();
+		var image = document.querySelector('.ndn-image-preview > img');
+		image.src = this.href;
+		image.alt = this.dataset.alt;
+		$('.ndn-image-preview').addClass('opened');
+	});
+	$('.ndn-image-preview').on('click', function(evt){
+		$('.ndn-image-preview').removeClass('opened');
+	});
 	/* ---------------------------------------------------------------------- */
 	/*	Back To TOp Script
 	/* ---------------------------------------------------------------------- */

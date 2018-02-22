@@ -164,3 +164,22 @@ ul.ndn-search-results > li p{
 .ndn-slide-next{
     right: 0;
 }
+.ndn-image-preview {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 50000000;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+    text-align: center;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.ndn-image-preview.opened{
+    display: flex;
+}
+.ndn-image-preview > img {
+    max-width: 85%;
+}
