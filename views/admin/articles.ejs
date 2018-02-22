@@ -14,7 +14,7 @@
 					<td>
 						<a href="/blog/articles/{{article.path}}" class="btn btn-primary"><i class="fa fa-eye"></i></a>
 						<button class="btn btn-success" ng-click="edit(article)"><i class="fa fa-edit"></i></button>
-						<button class="btn btn-danger" ng-click="pubUnpub(article)"><i class="fa fa-thumbs-{{article.published?'down':'up'}}"></i></button>
+						<button class="btn btn-danger" ng-click="pubUnpub(article)"><i class="fa fa-thumbs-{{article.published?'up':'down'}}"></i></button>
 					</td>
 				</tr>
 				<tr ng-if="articles.length == 0">
