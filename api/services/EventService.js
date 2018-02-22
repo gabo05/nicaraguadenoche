@@ -69,8 +69,8 @@ module.exports = {
             sevent.path = StringService.toPath(sevent.title);
         }
         sevent.active = true;
-        sevent.start_date = TimeService.toDate(sevent.start_date);
-        sevent.end_date = TimeService.toDate(sevent.end_date);
+        sevent.start_date = TimeService.toDate(TimeService.toDate(sevent.start_date));
+        sevent.end_date = TimeService.toDate(TimeService.toDate(sevent.end_date));
 		return new Promise(function(resolve, reject){
 			Event.native(function (err, Collection){
 			    Collection.update({"path": sevent.path}, {"$set": sevent}, {"upsert": true}, function (err, updated){

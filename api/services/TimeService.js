@@ -6,7 +6,11 @@ var mDays = mHours * 24;
 var getNicDatetime = function(){
 	var current = new Date();
 	var utc = new Date(current.getUTCFullYear(), current.getUTCMonth(), current.getUTCDate(), current.getUTCHours(), current.getUTCMinutes(), current.getUTCSeconds());
-	var nic = new Date(utc.getUTCFullYear(), utc.getUTCMonth(), utc.getUTCDate(), utc.getUTCHours()-6, utc.getUTCMinutes(), utc.getUTCSeconds());
+	var nic = new Date(utc.getTime() - 21600000);
+	return nic;
+};
+var getNicDatetimeFrom = function (current) {
+	var nic = new Date(current.getTime() - 21600000);
 	return nic;
 };
 // api/services/TimeService.js
@@ -33,7 +37,7 @@ module.exports = {
 		return oDiff;
 	},
 	toDate: function (sdate) {
-		return moment(sdate, 'YYYY-MM-DDTHH:mm:ss.SSS').toDate();
+		return getNicDatetimeFrom(moment(sdate, 'YYYY-MM-DDTHH:mm:ss.SSS').toDate());
 	},
 	shortDate: function (date) {
 		return moment(date).format('MMM DD, YYYY');
