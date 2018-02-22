@@ -22,7 +22,13 @@
 				setTimeout(function(){
 					$('#message').fadeOut();
 				}, 3000);
-		};
+        };
+        $scope.delete = function (id) {
+            gallery.delete(id).then(function (data) {
+                showMessage('Recurso eliminado correctamente de la galeria');
+                $scope.loadImages();
+            });
+        };
         $scope.save = function(){
             if($scope.image.type=='video'){
                 var videoregex = /https:\/\/www[.]youtube[.]com\/watch[?]v=.+/;

@@ -18,6 +18,14 @@
 					});
 				});
 			},
+			delete: function(id){
+				return new Promise(function(resolve, reject){
+					$http.get('/gallery/delete/?id='+id)
+					.then(function(resp){
+						resolve(resp.data);
+					});
+				});
+			},
 			save: function(image){
 				return new Promise(function(resolve, reject){
 					$http.post('/gallery/save', image)

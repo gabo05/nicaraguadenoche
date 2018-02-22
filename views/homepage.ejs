@@ -12,8 +12,9 @@
 <!--Banner Wrap End-->
 <!--Sugested Places-->
 <div class="container-fluid">
-    <div class="ndn-suggested row">
-        <h2>Lugares Sugeridos</h2>
+    <h2>Lugares Sugeridos</h2>
+    <div class="ndn-suggested row" id="ndnSuggesteds">
+        <a href="#" id="ndnPrevSug" class="ndn-slide-prev"><i class="fa fa-angle-left"></i></a>
         <% for(var i = 0; i<suggesteds.length; i++){
             var place = suggesteds[i];
             %>
@@ -27,6 +28,7 @@
             </div>
         </div>
         <% } %>
+        <a href="#" id="ndnNextSug" class="ndn-slide-next"><i class="fa fa-angle-right"></i></a>
     </div>
 </div>
 <!--End Sugested Places-->

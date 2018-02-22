@@ -74,9 +74,9 @@ module.exports = {
 			Place.native(function (err, collection) {
 				if(err) reject(err);
 
-				collection.aggregate([{
+				collection.aggregate([/*{
 					$limit: 4
-				}]).toArray(function (err, results) {
+				}*/]).toArray(function (err, results) {
                     if (err) return reject(err);
                     return resolve(results);
                 });

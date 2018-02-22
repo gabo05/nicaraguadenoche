@@ -35,5 +35,14 @@ module.exports = {
                 });
             });
 		});
+    },
+    delete: function (id) {
+        return new Promise(function (resolve, reject) {
+            Gallery.native(function(err, collection) {
+                if (err) return reject(err);
+                collection.remove({_id: new ObjectId(id)});
+                resolve({status: 'ok'});
+            });
+        });
     }
 };

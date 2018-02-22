@@ -1,7 +1,27 @@
 $(document).ready(function(){
 	"use strict";
 
-	
+	if(document.getElementById('ndnPrevSug')){
+		var prevSug = document.getElementById('ndnPrevSug');
+		var nextSug = document.getElementById('ndnNextSug');
+		var container = document.getElementById('ndnSuggesteds');
+		$(prevSug).on('click', function (evt) {
+			evt.preventDefault();
+			for (var t = 0; t < container.offsetWidth; t += 2){
+				setTimeout(function() {
+					container.scrollLeft -= 2
+				}, t);
+			}           
+		});
+		$(nextSug).on('click', function (evt) {
+			evt.preventDefault();
+			for (var t = 0; t < container.offsetWidth; t += 2){
+				setTimeout(function() {
+					container.scrollLeft += 2
+				}, t);
+			}           
+		});
+	}
 	/* ---------------------------------------------------------------------- */
 	/*	Back To TOp Script
 	/* ---------------------------------------------------------------------- */

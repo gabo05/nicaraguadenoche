@@ -42,5 +42,13 @@ module.exports = {
         }).catch(function (err) {
             return res.serverError(err);
         });
+    },
+    delete: function (req, res) {
+        GalleryService.delete(req.param('id'))
+        .then(function (data) {
+            return res.ok(data);
+        }).catch(function (err) {
+            return res.serverError(err);
+        });
     }
 }

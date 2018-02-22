@@ -135,3 +135,32 @@ ul.ndn-search-results > li p{
 .kf_schedule_day1_des ul{
     background-color: #000;
 }
+.ndn-suggested{
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    overflow-x: scroll;
+}
+.ndn-suggested-item{
+    min-width: 25%;
+    .thumbnail{
+        min-height: 380px;
+    }
+}
+.ndn-slide-prev
+, .ndn-slide-next{
+    background-color: rgba(4, 13, 42, 0.5);
+    display: block;
+    color: #fff;
+    font-size: 55px;
+    position: absolute;
+    padding: 13px;
+    align-self: center;
+    z-index: 500;
+}
+.ndn-slide-prev{
+    float: left;
+}
+.ndn-slide-next{
+    right: 0;
+}
